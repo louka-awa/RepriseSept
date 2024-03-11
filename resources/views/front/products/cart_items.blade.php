@@ -1,15 +1,15 @@
-<?php use App\Models\Product; 
-use App\Models\Currency; 
+<?php use App\Models\Product;
+use App\Models\Currency;
 ?>
-<!-- Products-List-Wrapper -->
+<!-- En-tête de la liste des produits -->
 <div class="table-wrapper u-s-m-b-60">
     <table>
         <thead>
             <tr>
-                <th>Product</th>
-                <th>Price</th>
-                <th>Quantity</th>
-                <th>Subtotal</th>
+                <th>Produit</th>
+                <th>Prix</th>
+                <th>Quantité</th>
+                <th>Sous-total</th>
                 <th>Action</th>
             </tr>
         </thead>
@@ -22,10 +22,10 @@ use App\Models\Currency;
                 <td>
                     <div class="cart-anchor-image">
                         <a href="{{ url('product/'.$item['product_id'])}}">
-                            <img src="{{ asset('front/images/product_images/small/'.$item['product']['product_image']) }}" alt="Product">
+                            <img src="{{ asset('front/images/product_images/small/'.$item['product']['product_image']) }}" alt="Produit">
                             <h6>
                                 {{ $item['product']['product_name'] }} ({{ $item['product']['product_code'] }}) - {{ $item['size'] }}<br>
-                                Color: {{ $item['product']['product_color'] }}<br>
+                                Couleur: {{ $item['product']['product_color'] }}<br>
 
                             </h6>
                         </a>
@@ -36,8 +36,8 @@ use App\Models\Currency;
                         @if(isset($currency))
                             @php $_GET['cy']=$currency @endphp
                         @endif
-                        @if(isset($_GET['cy'])&&$_GET['cy']!="INR")
-                            @php 
+                        @if(isset($_GET['cy'])&&$_GET['cy']!="F CFA")
+                            @php
                                 $getCurrency = Currency::where('currency_code',$_GET['cy'])->first()->toArray();
                             @endphp
                             @if($getDiscountAttributePrice['discount']>0)
@@ -53,7 +53,7 @@ use App\Models\Currency;
                                 @else
                                 <div class="price-template">
                                     <div class="item-new-price">
-                                        {{$_GET['cy']}} 
+                                        {{$_GET['cy']}}
                                         {{ round($getDiscountAttributePrice['final_price']/$getCurrency['exchange_rate'],2) }}
                                     </div>
                                 </div>
@@ -62,16 +62,16 @@ use App\Models\Currency;
                             @if($getDiscountAttributePrice['discount']>0)
                                 <div class="price-template">
                                     <div class="item-new-price">
-                                        Rs.{{ $getDiscountAttributePrice['final_price'] }}
+                                        {{ $getDiscountAttributePrice['final_price'] }} F CFA
                                     </div>
                                     <div class="item-old-price" style="margin-left:-40px;">
-                                        Rs.{{ $getDiscountAttributePrice['product_price'] }}
+                                        {{ $getDiscountAttributePrice['product_price'] }} F CFA
                                     </div>
                                 </div>
                                 @else
                                 <div class="price-template">
                                     <div class="item-new-price">
-                                        Rs.{{ $getDiscountAttributePrice['final_price'] }}
+                                        {{ $getDiscountAttributePrice['final_price'] }} F CFA
                                     </div>
                                 </div>
                             @endif
@@ -92,10 +92,10 @@ use App\Models\Currency;
                         @if(isset($currency))
                             @php $_GET['cy']=$currency @endphp
                         @endif
-                        @if(isset($_GET['cy'])&&$_GET['cy']!="INR")
+                        @if(isset($_GET['cy'])&&$_GET['cy']!="F CFA")
                             {{$_GET['cy']}} {{ round($getDiscountAttributePrice['final_price']* $item['quantity']/$getCurrency['exchange_rate'],2) }}
                         @else
-                            Rs.{{ $getDiscountAttributePrice['final_price'] * $item['quantity'] }}
+                            {{ $getDiscountAttributePrice['final_price'] * $item['quantity'] }} F CFA
                         @endif
                     </div>
                 </td>
@@ -111,54 +111,54 @@ use App\Models\Currency;
         </tbody>
     </table>
 </div>
-<!-- Products-List-Wrapper /- -->
-<!-- Billing -->
+<!-- Fin de l'en-tête de la liste des produits -->
+<!-- Facturation -->
 <div class="calculation u-s-m-b-60">
     <div class="table-wrapper-2">
         <table>
             <thead>
                 <tr>
-                    <th colspan="2">Cart Totals</th>
+                    <th colspan="2">Total du panier</th>
                 </tr>
             </thead>
             <tbody>
                 <tr>
                     <td>
-                        <h3 class="calc-h3 u-s-m-b-0">Sub Total</h3>
+                        <h3 class="calc-h3 u-s-m-b-0">Sous-total</h3>
                     </td>
                     <td>
-                        @if(isset($_GET['cy'])&&$_GET['cy']!="INR")
+                        @if(isset($_GET['cy'])&&$_GET['cy']!="F CFA")
                             <span class="calc-text">{{$_GET['cy']}} {{ round($total_price/$getCurrency['exchange_rate'],2) }}</span>
                         @else
-                            <span class="calc-text">Rs.{{ $total_price }}</span>
+                            <span class="calc-text">{{ $total_price }} F CFA</span>
                         @endif
                     </td>
                 </tr>
                 <tr>
                     <td>
-                        <h3 class="calc-h3 u-s-m-b-0">Coupon Discount</h3>
+                        <h3 class="calc-h3 u-s-m-b-0">Réduction du coupon</h3>
                     </td>
                     <td>
                         <span class="calc-text couponAmount">
                             @if(Session::has('couponAmount'))
-                                Rs.{{ Session::get('couponAmount') }}
+                                {{ Session::get('couponAmount') }} F CFA
                             @else
-                                Rs.0
+                                F CFA
                             @endif
                         </span>
                     </td>
                 </tr>
                 <tr>
                     <td>
-                        <h3 class="calc-h3 u-s-m-b-0">Grand Total</h3>
+                        <h3 class="calc-h3 u-s-m-b-0">Total</h3>
                     </td>
                     <td>
                         <span class="calc-text grand_total">
                             @php $grand_total = $total_price - Session::get('couponAmount') @endphp
-                            @if(isset($_GET['cy'])&&$_GET['cy']!="INR")
+                            @if(isset($_GET['cy'])&&$_GET['cy']!="F CFA")
                                 {{$_GET['cy']}} {{ round($grand_total/$getCurrency['exchange_rate'],2) }}
                             @else
-                                Rs.{{ $grand_total }}
+                                {{ $grand_total }} F CFA
                             @endif
                         </span>
                     </td>
@@ -167,4 +167,4 @@ use App\Models\Currency;
         </table>
     </div>
 </div>
-<!-- Billing /- -->
+<!-- Fin de la facturation -->

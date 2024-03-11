@@ -1,36 +1,36 @@
-<!-- Footer -->
+<!-- Pied de page -->
 <footer class="footer">
     <div class="container">
-        <!-- Outer-Footer -->
+        <!-- Pied de page externe -->
         <div class="outer-footer-wrapper u-s-p-y-80">
             <h6>
-                For special offers and other discount information
+                Pour des offres spéciales et d'autres informations sur les réductions
             </h6>
             <h1>
-                Subscribe to our Newsletter
+                Abonnez-vous à notre Newsletter
             </h1>
             <p>
-                Subscribe to the mailing list to receive updates on promotions, new arrivals, discount and coupons.
+                Abonnez-vous à la liste de diffusion pour recevoir des mises à jour sur les promotions, les nouveautés, les réductions et les coupons.
             </p>
             <form class="newsletter-form">
-                <label class="sr-only" for="newsletter-field">Enter your Email</label>
-                <input type="text" placeholder="Your Email Address" name="subscriber_email" id="subscriber_email" required="">
-                <button type="button" class="button" onclick="addSubscriber()">SUBMIT</button>
+                <label class="sr-only" for="newsletter-field">Entrez votre adresse e-mail</label>
+                <input type="text" placeholder="Votre adresse e-mail" name="subscriber_email" id="subscriber_email" required="">
+                <button type="button" class="button" onclick="addSubscriber()">SOUMETTRE</button>
             </form>
         </div>
-        <!-- Outer-Footer /- -->
-        <!-- Mid-Footer -->
+        <!-- /Pied de page externe -->
+        <!-- Pied de page moyen -->
         <div class="mid-footer-wrapper u-s-p-b-80">
             <div class="row">
                 <div class="col-lg-3 col-md-3 col-sm-12">
                     <div class="footer-list">
-                        <h6>COMPANY</h6>
+                        <h6>ENTREPRISE</h6>
                         <ul>
                             <li>
-                                <a href="{{ url('about-us')}}">About Us</a>
+                                <a href="{{ url('about-us')}}">À propos de nous</a>
                             </li>
                             <li>
-                                <a href="{{ url('contact')}}">Contact Us</a>
+                                <a href="{{ url('contact')}}">Contactez-nous</a>
                             </li>
                             <li>
                                 <a href="{{ url('faq')}}">FAQ</a>
@@ -43,29 +43,29 @@
                         <h6>COLLECTION</h6>
                         <ul>
                             <li>
-                                <a href="{{url('men')}}">Men Clothing</a>
+                                <a href="{{url('men')}}">Vêtements pour hommes</a>
                             </li>
                             <li>
-                                <a href="{{url('women')}}"">Women Clothing</a>
+                                <a href="{{url('women')}}">Vêtements pour femmes</a>
                             </li>
                             <li>
-                                <a href="{{url('kids')}}"">Kids Clothing</a>
+                                <a href="{{url('kids')}}">Vêtements pour enfants</a>
                             </li>
                         </ul>
                     </div>
                 </div>
                 <div class="col-lg-3 col-md-3 col-sm-12">
                     <div class="footer-list">
-                        <h6>ACCOUNT</h6>
+                        <h6>COMPTE</h6>
                         <ul>
                             <li>
-                                <a href="{{url('user/account')}}">My Account</a>
+                                <a href="{{url('user/account')}}">Mon compte</a>
                             </li>
                             <!-- <li>
-                                <a href="shop-v1-root-category.html">My Profile</a>
+                                <a href="shop-v1-root-category.html">Mon profil</a>
                             </li> -->
                             <li>
-                                <a href="{{url('user/orders')}}">My Orders</a>
+                                <a href="{{url('user/orders')}}">Mes commandes</a>
                             </li>
                         </ul>
                     </div>
@@ -76,7 +76,7 @@
                         <ul>
                             <li>
                                 <i class="fas fa-location-arrow u-s-m-r-9"></i>
-                                <span>Stack Developers Youtube Channel</span>
+                                <span>Chaîne YouTube des Loukaawa</span>
                             </li>
                             <li>
                                 <a href="tel:+111-222-333">
@@ -96,8 +96,8 @@
                 </div>
             </div>
         </div>
-        <!-- Mid-Footer /- -->
-        <!-- Bottom-Footer -->
+        <!-- /Pied de page moyen -->
+        <!-- Pied de page inférieur -->
         <div class="bottom-footer-wrapper">
             <div class="social-media-wrapper">
                 <ul class="social-media-list">
@@ -132,16 +132,16 @@
                         </a>
                     </li>
                     <li>
-                        <a target="_blank" href="https://youtube.com/stackdevelopers">
+                        <a target="_blank" href="https://loukaawa.com">
                             <i class="fab fa-youtube"></i>
                         </a>
                     </li>
                 </ul>
             </div>
-            <p class="copyright-text">Copyright &copy; 2022
-                <a target="_blank" rel="nofollow" href="https://youtube.com/stackdevelopers">Stack Developers</a> | All Right Reserved</p>
+            <p class="copyright-text">Droits d'auteur &copy; 202
+                <a target="_blank" rel="nofollow" href="https://loukaawa.com">Loukaawa</a> | Tous droits réservés</p>
         </div>
     </div>
-    <!-- Bottom-Footer /- -->
+    <!-- /Pied de page inférieur -->
 </footer>
-<!-- Footer /- -->
+<!-- /Pied de page -->

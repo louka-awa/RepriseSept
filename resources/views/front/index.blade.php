@@ -1,8 +1,12 @@
-<?php use App\Models\Product;
-use App\Models\Currency; ?>
+<?php
+use App\Models\Product;
+use App\Models\Currency;
+?>
+
 @extends('front.layout.layout')
+
 @section('content')
-<!-- Main-Slider -->
+<!-- Carrousel Principal -->
 <div class="default-height ph-item">
     <div class="slider-main owl-carousel">
         @foreach($sliderBanners as $banner)
@@ -15,9 +19,10 @@ use App\Models\Currency; ?>
         @endforeach
     </div>
 </div>
-<!-- Main-Slider /- -->
+<!-- Carrousel Principal /- -->
+
 @if(isset($fixBanners[0]['image']))
-<!-- Banner-Layer -->
+<!-- Couche de la Bannière -->
 <div class="banner-layer">
     <div class="container">
         <div class="image-banner">
@@ -27,25 +32,28 @@ use App\Models\Currency; ?>
         </div>
     </div>
 </div>
-<!-- Banner-Layer /- -->
+<!-- Couche de la Bannière /- -->
 @endif
-<!-- Top Collection -->
+
+
+
+<!-- Collection Top -->
 <section class="section-maker">
     <div class="container">
         <div class="sec-maker-header text-center">
             <h3 class="sec-maker-h3">TOP COLLECTION</h3>
             <ul class="nav tab-nav-style-1-a justify-content-center">
                 <li class="nav-item">
-                    <a class="nav-link active" data-toggle="tab" href="#men-latest-products">New Arrivals</a>
+                    <a class="nav-link active" data-toggle="tab" href="#men-latest-products">Nouveautés</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" data-toggle="tab" href="#men-best-selling-products">Best Sellers</a>
+                    <a class="nav-link" data-toggle="tab" href="#men-best-selling-products">Meilleures ventes</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" data-toggle="tab" href="#discounted-products">Discounted Products</a>
+                    <a class="nav-link" data-toggle="tab" href="#discounted-products">Produits en promotion</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" data-toggle="tab" href="#men-featured-products">Featured Products</a>
+                    <a class="nav-link" data-toggle="tab" href="#men-featured-products">Produits vedettes</a>
                 </li>
             </ul>
         </div>
@@ -62,17 +70,16 @@ use App\Models\Currency; ?>
                                     <div class="image-container">
                                         <a class="item-img-wrapper-link" href="{{ url('product/'.$product['id']) }}">
                                             @if(!empty($product['product_image']) && file_exists($product_image_path))
-                                            <img class="img-fluid" src="{{ asset($product_image_path) }}" alt="Product">
+                                            <img class="img-fluid" src="{{ asset($product_image_path) }}" alt="Produit">
                                             @else
-                                            <img class="img-fluid" src="{{ asset('front/images/product_images/small/no-image.png') }}" alt="Product">
+                                            <img class="img-fluid" src="{{ asset('front/images/product_images/small/no-image.png') }}" alt="Produit">
                                             @endif
                                         </a>
                                         <div class="item-action-behaviors">
-                                            <a class="item-quick-look" data-toggle="modal" href="#quick-view">Quick Look
-                                            </a>
-                                            <a class="item-mail" href="javascript:void(0)">Mail</a>
-                                            <a class="item-addwishlist" href="javascript:void(0)">Add to Wishlist</a>
-                                            <a class="item-addCart" href="javascript:void(0)">Add to Cart</a>
+                                            <a class="item-quick-look" data-toggle="modal" href="#quick-view">Aperçu rapide</a>
+                                            <a class="item-mail" href="javascript:void(0)">Courriel</a>
+                                            <a class="item-addwishlist" href="javascript:void(0)">Ajouter à la liste de souhaits</a>
+                                            <a class="item-addCart" href="javascript:void(0)">Ajouter au panier</a>
                                         </div>
                                     </div>
                                     <div class="item-content">
@@ -86,7 +93,7 @@ use App\Models\Currency; ?>
                                                 <a href="{{ url('product/'.$product['id']) }}">{{ $product['product_name'] }}</a>
                                             </h6>
                                             <div class="item-stars">
-                                                <div class='star' title="0 out of 5 - based on 0 Reviews">
+                                                <div class='star' title="0 sur 5 - basé sur 0 avis">
                                                     <span style='width:0'></span>
                                                 </div>
                                                 <span>(0)</span>
@@ -133,7 +140,7 @@ use App\Models\Currency; ?>
                                         @endif
                                     </div>
                                     <div class="tag new">
-                                        <span>NEW</span>
+                                        <span>NOUVEAU</span>
                                     </div>
                                 </div>
                                 @endforeach
@@ -150,17 +157,16 @@ use App\Models\Currency; ?>
                                     <div class="image-container">
                                         <a class="item-img-wrapper-link" href="{{ url('product/'.$product['id']) }}">
                                             @if(!empty($product['product_image']) && file_exists($product_image_path))
-                                            <img class="img-fluid" src="{{ asset($product_image_path) }}" alt="Product">
+                                            <img class="img-fluid" src="{{ asset($product_image_path) }}" alt="Produit">
                                             @else
-                                            <img class="img-fluid" src="{{ asset('front/images/product_images/small/no-image.png') }}" alt="Product">
+                                            <img class="img-fluid" src="{{ asset('front/images/product_images/small/no-image.png') }}" alt="Produit">
                                             @endif
                                         </a>
                                         <div class="item-action-behaviors">
-                                            <a class="item-quick-look" data-toggle="modal" href="#quick-view">Quick Look
-                                            </a>
-                                            <a class="item-mail" href="javascript:void(0)">Mail</a>
-                                            <a class="item-addwishlist" href="javascript:void(0)">Add to Wishlist</a>
-                                            <a class="item-addCart" href="javascript:void(0)">Add to Cart</a>
+                                            <a class="item-quick-look" data-toggle="modal" href="#quick-view">Aperçu rapide</a>
+                                            <a class="item-mail" href="javascript:void(0)">Courriel</a>
+                                            <a class="item-addwishlist" href="javascript:void(0)">Ajouter à la liste de souhaits</a>
+                                            <a class="item-addCart" href="javascript:void(0)">Ajouter au panier</a>
                                         </div>
                                     </div>
                                     <div class="item-content">
@@ -174,7 +180,7 @@ use App\Models\Currency; ?>
                                                 <a href="{{ url('product/'.$product['id']) }}">{{ $product['product_name'] }}</a>
                                             </h6>
                                             <div class="item-stars">
-                                                <div class='star' title="0 out of 5 - based on 0 Reviews">
+                                                <div class='star' title="0 sur 5 - basé sur 0 avis">
                                                     <span style='width:0'></span>
                                                 </div>
                                                 <span>(0)</span>
@@ -221,7 +227,7 @@ use App\Models\Currency; ?>
                                         @endif
                                     </div>
                                     <div class="tag new">
-                                        <span>NEW</span>
+                                        <span>NOUVEAU</span>
                                     </div>
                                 </div>
                                 @endforeach
@@ -238,17 +244,16 @@ use App\Models\Currency; ?>
                                     <div class="image-container">
                                         <a class="item-img-wrapper-link" href="{{ url('product/'.$product['id']) }}">
                                             @if(!empty($product['product_image']) && file_exists($product_image_path))
-                                            <img class="img-fluid" src="{{ asset($product_image_path) }}" alt="Product">
+                                            <img class="img-fluid" src="{{ asset($product_image_path) }}" alt="Produit">
                                             @else
-                                            <img class="img-fluid" src="{{ asset('front/images/product_images/small/no-image.png') }}" alt="Product">
+                                            <img class="img-fluid" src="{{ asset('front/images/product_images/small/no-image.png') }}" alt="Produit">
                                             @endif
                                         </a>
                                         <div class="item-action-behaviors">
-                                            <a class="item-quick-look" data-toggle="modal" href="#quick-view">Quick Look
-                                            </a>
-                                            <a class="item-mail" href="javascript:void(0)">Mail</a>
-                                            <a class="item-addwishlist" href="javascript:void(0)">Add to Wishlist</a>
-                                            <a class="item-addCart" href="javascript:void(0)">Add to Cart</a>
+                                            <a class="item-quick-look" data-toggle="modal" href="#quick-view">Aperçu rapide</a>
+                                            <a class="item-mail" href="javascript:void(0)">Courriel</a>
+                                            <a class="item-addwishlist" href="javascript:void(0)">Ajouter à la liste de souhaits</a>
+                                            <a class="item-addCart" href="javascript:void(0)">Ajouter au panier</a>
                                         </div>
                                     </div>
                                     <div class="item-content">
@@ -262,7 +267,7 @@ use App\Models\Currency; ?>
                                                 <a href="{{ url('product/'.$product['id']) }}">{{ $product['product_name'] }}</a>
                                             </h6>
                                             <div class="item-stars">
-                                                <div class='star' title="0 out of 5 - based on 0 Reviews">
+                                                <div class='star' title="0 sur 5 - basé sur 0 avis">
                                                     <span style='width:0'></span>
                                                 </div>
                                                 <span>(0)</span>
@@ -270,46 +275,46 @@ use App\Models\Currency; ?>
                                         </div>
                                         <?php $getDiscountPrice = Product::getDiscountPrice($product['id']); ?>
                                         @if(isset($_GET['cy'])&&$_GET['cy']!="F CFA")
-                                        @php
-                                            $getCurrency = Currency::where('currency_code',$_GET['cy'])->first()->toArray();
-                                        @endphp
-                                        @if($getDiscountPrice>0)
-                                        <div class="price-template">
-                                            <div class="item-new-price">
-                                                {{$_GET['cy']}} {{ round($getDiscountPrice/$getCurrency['exchange_rate'],2) }}
+                                            @php
+                                                $getCurrency = Currency::where('currency_code',$_GET['cy'])->first()->toArray();
+                                            @endphp
+                                            @if($getDiscountPrice>0)
+                                            <div class="price-template">
+                                                <div class="item-new-price">
+                                                    {{$_GET['cy']}} {{ round($getDiscountPrice/$getCurrency['exchange_rate'],2) }}
+                                                </div>
+                                                <div class="item-old-price">
+                                                    {{$_GET['cy']}} {{ round($product['product_price']/$getCurrency['exchange_rate'],2) }}
+                                                </div>
                                             </div>
-                                            <div class="item-old-price">
-                                                {{$_GET['cy']}} {{ round($product['product_price']/$getCurrency['exchange_rate'],2) }}
+                                            @else
+                                            <div class="price-template">
+                                                <div class="item-new-price">
+                                                    {{$_GET['cy']}} {{ round($product['product_price']/$getCurrency['exchange_rate'],2) }}
+                                                </div>
                                             </div>
-                                        </div>
+                                            @endif
                                         @else
-                                        <div class="price-template">
-                                            <div class="item-new-price">
-                                                {{$_GET['cy']}} {{ round($product['product_price']/$getCurrency['exchange_rate'],2) }}
+                                            @if($getDiscountPrice>0)
+                                            <div class="price-template">
+                                                <div class="item-new-price">
+                                                     {{ $getDiscountPrice }} F CFA
+                                                </div>
+                                                <div class="item-old-price">
+                                                     {{ $product['product_price'] }} F CFA
+                                                </div>
                                             </div>
-                                        </div>
+                                            @else
+                                            <div class="price-template">
+                                                <div class="item-new-price">
+                                                     {{ $product['product_price'] }} F CFA
+                                                </div>
+                                            </div>
+                                            @endif
                                         @endif
-                                    @else
-                                        @if($getDiscountPrice>0)
-                                        <div class="price-template">
-                                            <div class="item-new-price">
-                                                 {{ $getDiscountPrice }} F CFA
-                                            </div>
-                                            <div class="item-old-price">
-                                                 {{ $product['product_price'] }} F CFA
-                                            </div>
-                                        </div>
-                                        @else
-                                        <div class="price-template">
-                                            <div class="item-new-price">
-                                                 {{ $product['product_price'] }} F CFA
-                                            </div>
-                                        </div>
-                                        @endif
-                                    @endif
                                     </div>
                                     <div class="tag new">
-                                        <span>NEW</span>
+                                        <span>NOUVEAU</span>
                                     </div>
                                 </div>
                                 @endforeach
@@ -326,17 +331,16 @@ use App\Models\Currency; ?>
                                     <div class="image-container">
                                         <a class="item-img-wrapper-link" href="{{ url('product/'.$product['id']) }}">
                                             @if(!empty($product['product_image']) && file_exists($product_image_path))
-                                            <img class="img-fluid" src="{{ asset($product_image_path) }}" alt="Product">
+                                            <img class="img-fluid" src="{{ asset($product_image_path) }}" alt="Produit">
                                             @else
-                                            <img class="img-fluid" src="{{ asset('front/images/product_images/small/no-image.png') }}" alt="Product">
+                                            <img class="img-fluid" src="{{ asset('front/images/product_images/small/no-image.png') }}" alt="Produit">
                                             @endif
                                         </a>
                                         <div class="item-action-behaviors">
-                                            <a class="item-quick-look" data-toggle="modal" href="#quick-view">Quick Look
-                                            </a>
-                                            <a class="item-mail" href="javascript:void(0)">Mail</a>
-                                            <a class="item-addwishlist" href="javascript:void(0)">Add to Wishlist</a>
-                                            <a class="item-addCart" href="javascript:void(0)">Add to Cart</a>
+                                            <a class="item-quick-look" data-toggle="modal" href="#quick-view">Aperçu rapide</a>
+                                            <a class="item-mail" href="javascript:void(0)">Courriel</a>
+                                            <a class="item-addwishlist" href="javascript:void(0)">Ajouter à la liste de souhaits</a>
+                                            <a class="item-addCart" href="javascript:void(0)">Ajouter au panier</a>
                                         </div>
                                     </div>
                                     <div class="item-content">
@@ -350,7 +354,7 @@ use App\Models\Currency; ?>
                                                 <a href="{{ url('product/'.$product['id']) }}">{{ $product['product_name'] }}</a>
                                             </h6>
                                             <div class="item-stars">
-                                                <div class='star' title="0 out of 5 - based on 0 Reviews">
+                                                <div class='star' title="0 sur 5 - basé sur 0 avis">
                                                     <span style='width:0'></span>
                                                 </div>
                                                 <span>(0)</span>
@@ -358,46 +362,46 @@ use App\Models\Currency; ?>
                                         </div>
                                         <?php $getDiscountPrice = Product::getDiscountPrice($product['id']); ?>
                                         @if(isset($_GET['cy'])&&$_GET['cy']!="F CFA")
-                                        @php
-                                            $getCurrency = Currency::where('currency_code',$_GET['cy'])->first()->toArray();
-                                        @endphp
-                                        @if($getDiscountPrice>0)
-                                        <div class="price-template">
-                                            <div class="item-new-price">
-                                                {{$_GET['cy']}} {{ round($getDiscountPrice/$getCurrency['exchange_rate'],2) }}
+                                            @php
+                                                $getCurrency = Currency::where('currency_code',$_GET['cy'])->first()->toArray();
+                                            @endphp
+                                            @if($getDiscountPrice>0)
+                                            <div class="price-template">
+                                                <div class="item-new-price">
+                                                    {{$_GET['cy']}} {{ round($getDiscountPrice/$getCurrency['exchange_rate'],2) }}
+                                                </div>
+                                                <div class="item-old-price">
+                                                    {{$_GET['cy']}} {{ round($product['product_price']/$getCurrency['exchange_rate'],2) }}
+                                                </div>
                                             </div>
-                                            <div class="item-old-price">
-                                                {{$_GET['cy']}} {{ round($product['product_price']/$getCurrency['exchange_rate'],2) }}
+                                            @else
+                                            <div class="price-template">
+                                                <div class="item-new-price">
+                                                    {{$_GET['cy']}} {{ round($product['product_price']/$getCurrency['exchange_rate'],2) }}
+                                                </div>
                                             </div>
-                                        </div>
+                                            @endif
                                         @else
-                                        <div class="price-template">
-                                            <div class="item-new-price">
-                                                {{$_GET['cy']}} {{ round($product['product_price']/$getCurrency['exchange_rate'],2) }}
+                                            @if($getDiscountPrice>0)
+                                            <div class="price-template">
+                                                <div class="item-new-price">
+                                                     {{ $getDiscountPrice }} F CFA
+                                                </div>
+                                                <div class="item-old-price">
+                                                     {{ $product['product_price'] }} F CFA
+                                                </div>
                                             </div>
-                                        </div>
+                                            @else
+                                            <div class="price-template">
+                                                <div class="item-new-price">
+                                                     {{ $product['product_price'] }} F CFA
+                                                </div>
+                                            </div>
+                                            @endif
                                         @endif
-                                    @else
-                                        @if($getDiscountPrice>0)
-                                        <div class="price-template">
-                                            <div class="item-new-price">
-                                                 {{ $getDiscountPrice }} F CFA
-                                            </div>
-                                            <div class="item-old-price">
-                                                 {{ $product['product_price'] }} F CFA
-                                            </div>
-                                        </div>
-                                        @else
-                                        <div class="price-template">
-                                            <div class="item-new-price">
-                                                 {{ $product['product_price'] }} F CFA
-                                            </div>
-                                        </div>
-                                        @endif
-                                    @endif
                                     </div>
                                     <div class="tag new">
-                                        <span>NEW</span>
+                                        <span>NOUVEAU</span>
                                     </div>
                                 </div>
                                 @endforeach
@@ -409,9 +413,11 @@ use App\Models\Currency; ?>
         </div>
     </div>
 </section>
-<!-- Top Collection /- -->
+<!-- Fin Collection Top /- -->
+
+
 @if(isset($fixBanners[1]['image']))
-<!-- Banner-Layer -->
+<!-- Calque de la bannière -->
 <div class="banner-layer">
     <div class="container">
         <div class="image-banner">
@@ -421,9 +427,9 @@ use App\Models\Currency; ?>
         </div>
     </div>
 </div>
-<!-- Banner-Layer /- -->
+<!-- /Calque de la bannière -->
 @endif
-<!-- Site-Priorities -->
+<!-- Priorités du site -->
 <section class="app-priority">
     <div class="container">
         <div class="priority-wrapper u-s-p-b-80">
@@ -434,9 +440,9 @@ use App\Models\Currency; ?>
                             <i class="ion ion-md-star"></i>
                         </div>
                         <h2>
-                            Great Value
+                            Excellent rapport qualité-prix
                         </h2>
-                        <p>We offer competitive prices on our 100 million plus product range</p>
+                        <p>Nous proposons des prix compétitifs sur notre gamme de produits de plus de 100 millions</p>
                     </div>
                 </div>
                 <div class="col-lg-3 col-md-3 col-sm-3">
@@ -445,9 +451,9 @@ use App\Models\Currency; ?>
                             <i class="ion ion-md-cash"></i>
                         </div>
                         <h2>
-                            Shop with Confidence
+                            Achetez en toute confiance
                         </h2>
-                        <p>Our Protection covers your purchase from click to delivery</p>
+                        <p>Notre protection couvre votre achat de la commande à la livraison</p>
                     </div>
                 </div>
                 <div class="col-lg-3 col-md-3 col-sm-3">
@@ -456,9 +462,9 @@ use App\Models\Currency; ?>
                             <i class="ion ion-ios-card"></i>
                         </div>
                         <h2>
-                            Safe Payment
+                            Paiement sécurisé
                         </h2>
-                        <p>Pay with the world’s most popular and secure payment methods</p>
+                        <p>Payez avec les méthodes de paiement les plus populaires et sécurisées au monde</p>
                     </div>
                 </div>
                 <div class="col-lg-3 col-md-3 col-sm-3">
@@ -467,14 +473,15 @@ use App\Models\Currency; ?>
                             <i class="ion ion-md-contacts"></i>
                         </div>
                         <h2>
-                            24/7 Help Center
+                            Centre d'aide 24/7
                         </h2>
-                        <p>Round-the-clock assistance for a smooth shopping experience</p>
+                        <p>Assistance en continu pour une expérience d'achat fluide</p>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 </section>
-<!-- Site-Priorities /- -->
+<!-- /Priorités du site -->
 @endsection
+

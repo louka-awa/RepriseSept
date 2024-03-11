@@ -11,7 +11,7 @@ class DeliveryAddress extends Model
     use HasFactory;
 
     protected $fillable = [
-        'user_id','name','address','city','state','country','pincode','status','mobile'
+        'user_id','name','address','city','state','country','pincode','status','mobile','code_phone'
     ];
 
     public static function deliveryAddresses(){

@@ -46,7 +46,7 @@ return [
     'email' => 'Le champ :attribute doit être une adresse e-mail valide.',
     'ends_with' => 'Le champ :attribute doit se terminer par l\'un des éléments suivants : :values.',
     'enum' => 'La valeur sélectionnée de :attribute est invalide.',
-    'exists' => 'La valeur sélectionnée de :attribute est invalide.',
+    'exists' => 'La valeur sélectionnée de :attribute est invalide ou le mot de passe est erroné',
     'file' => 'Le champ :attribute doit être un fichier.',
     'filled' => 'Le champ :attribute doit avoir une valeur.',
     'gt' => [

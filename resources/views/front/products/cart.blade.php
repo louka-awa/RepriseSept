@@ -1,30 +1,30 @@
 <?php use App\Models\Product; ?>
 @extends('front.layout.layout')
 @section('content')
-<!-- Page Introduction Wrapper -->
+<!-- Enveloppe d'introduction de la page -->
 <div class="page-style-a">
     <div class="container">
         <div class="page-intro">
-            <h2>Cart</h2>
+            <h2>Panier</h2>
             <ul class="bread-crumb">
                 <li class="has-separator">
                     <i class="ion ion-md-home"></i>
-                    <a href="index.html">Home</a>
+                    <a href="index.html">Accueil</a>
                 </li>
                 <li class="is-marked">
-                    <a href="cart.html">Cart</a>
+                    <a href="cart.html">Panier</a>
                 </li>
             </ul>
         </div>
     </div>
 </div>
-<!-- Page Introduction Wrapper /- -->
-<!-- Cart-Page -->
+<!-- Enveloppe d'introduction de la page /- -->
+<!-- Page du Panier -->
 <div class="page-cart u-s-p-t-80">
     <div class="container">
         @if(Session::has('error_message'))
               <div class="alert alert-danger alert-dismissible fade show" role="alert">
-                <strong>Error: </strong> <?php echo Session::get('error_message'); ?>
+                <strong>Erreur : </strong> <?php echo Session::get('error_message'); ?>
                 <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                   <span aria-hidden="true">&times;</span>
                 </button>
@@ -33,7 +33,7 @@
 
           @if(Session::has('success_message'))
           <div class="alert alert-success alert-dismissible fade show" role="alert">
-            <strong>Success: </strong> <?php echo Session::get('success_message'); ?>
+            <strong>Succès : </strong> <?php echo Session::get('success_message'); ?>
             <button type="button" class="close" data-dismiss="alert" aria-label="Close">
               <span aria-hidden="true">&times;</span>
             </button>
@@ -47,20 +47,20 @@
                 <!-- Coupon -->
                 <div class="coupon-continue-checkout u-s-m-b-60">
                     <div class="coupon-area">
-                        <h6>Enter your coupon code if you have one.</h6>
+                        <h6>Entrez votre code de coupon si vous en avez un.</h6>
                         <div class="coupon-field">
                             <form id="ApplyCoupon" method="post" action="javascript:void(0);" @if(Auth::check()) user="1" @endif>@csrf
                             <div class="coupon-field">
-                                <label class="sr-only" for="coupon-code">Apply Coupon</label>
-                                <input name="code" id="code" type="text" class="text-field" placeholder="Enter Coupon Code">
-                                <button type="submit" class="button">Apply Coupon</button>
+                                <label class="sr-only" for="coupon-code">Appliquer le coupon</label>
+                                <input name="code" id="code" type="text" class="text-field" placeholder="Entrez le code du coupon">
+                                <button type="submit" class="button">Appliquer le coupon</button>
                             </div>
                         </form>
                         </div>
                     </div>
                     <div class="button-area">
-                        <a href="{{ url('/') }}" class="continue">Continue Shopping</a>
-                        <a href="{{ url('/checkout') }}" class="checkout">Proceed to Checkout</a>
+                        <a href="{{ url('/') }}" class="continue">Continuer vos achats</a>
+                        <a href="{{ url('/checkout') }}" class="checkout">Procéder au paiement</a>
                     </div>
                 </div>
                 <!-- Coupon /- -->
@@ -68,5 +68,5 @@
         </div>
     </div>
 </div>
-<!-- Cart-Page /- -->
+<!-- Page du Panier /- -->
 @endsection

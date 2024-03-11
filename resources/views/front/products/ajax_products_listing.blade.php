@@ -1,6 +1,6 @@
-<?php 
-use App\Models\Product; 
-use App\Models\Currency; 
+<?php
+use App\Models\Product;
+use App\Models\Currency;
 ?>
 <div class="row product-container grid-style">
 	@foreach($categoryProducts as $product)
@@ -10,16 +10,16 @@ use App\Models\Currency;
                 <a class="item-img-wrapper-link" href="{{ url('product/'.$product['id']) }}">
                 	<?php $product_image_path = 'front/images/product_images/small/'.$product['product_image']; ?>
                 	@if(!empty($product['product_image']) && file_exists($product_image_path))
-                    	<img class="img-fluid" src="{{ asset($product_image_path) }}" alt="Product">
+                    	<img class="img-fluid" src="{{ asset($product_image_path) }}" alt="Produit">
                     @else
-                    	<img class="img-fluid" src="{{ asset('front/images/product_images/small/no-image.png') }}" alt="Product">
+                    	<img class="img-fluid" src="{{ asset('front/images/product_images/small/no-image.png') }}" alt="Produit">
                     @endif
                 </a>
                 <div class="item-action-behaviors">
-                    <a class="item-quick-look" data-toggle="modal" href="#quick-view">Quick Look</a>
+                    <a class="item-quick-look" data-toggle="modal" href="#quick-view">Aperçu rapide</a>
                     <a class="item-mail" href="javascript:void(0)">Mail</a>
-                    <a class="item-addwishlist" href="javascript:void(0)">Add to Wishlist</a>
-                    <a class="item-addCart" href="javascript:void(0)">Add to Cart</a>
+                    <a class="item-addwishlist" href="javascript:void(0)">Ajouter à la liste de souhaits</a>
+                    <a class="item-addCart" href="javascript:void(0)">Ajouter au panier</a>
                 </div>
             </div>
             <div class="item-content">
@@ -43,35 +43,35 @@ use App\Models\Currency;
                         </p>
                     </div>
                     <!-- <div class="item-stars">
-                        <div class='star' title="4.5 out of 5 - based on 23 Reviews">
+                        <div class='star' title="4.5 sur 5 - basé sur 23 avis">
                             <span style='width:67px'></span>
                         </div>
                         <span>(23)</span>
                     </div> -->
                 </div>
                 <?php $getDiscountPrice = Product::getDiscountPrice($product['id']); ?>
-                @if(isset($_GET['cy'])&&$_GET['cy']!="INR")
-                    @php 
+                @if(isset($_GET['cy']) && $_GET['cy'] != "INR")
+                    @php
                         $getCurrency = Currency::where('currency_code',$_GET['cy'])->first()->toArray();
                     @endphp
-                    @if($getDiscountPrice>0)
+                    @if($getDiscountPrice > 0)
                     <div class="price-template">
                         <div class="item-new-price">
-                            {{$_GET['cy']}} {{ round($getDiscountPrice/$getCurrency['exchange_rate'],2) }}
+                            {{ $_GET['cy'] }} {{ round($getDiscountPrice/$getCurrency['exchange_rate'],2) }}
                         </div>
                         <div class="item-old-price">
-                            {{$_GET['cy']}} {{ round($product['product_price']/$getCurrency['exchange_rate'],2) }}
+                            {{ $_GET['cy'] }} {{ round($product['product_price']/$getCurrency['exchange_rate'],2) }}
                         </div>
                     </div>
                     @else
                     <div class="price-template">
                         <div class="item-new-price">
-                            {{$_GET['cy']}} {{ round($product['product_price']/$getCurrency['exchange_rate'],2) }}
+                            {{ $_GET['cy'] }} {{ round($product['product_price']/$getCurrency['exchange_rate'],2) }}
                         </div>
                     </div>
                     @endif
                 @else
-                    @if($getDiscountPrice>0)
+                    @if($getDiscountPrice > 0)
                     <div class="price-template">
                         <div class="item-new-price">
                             INR {{ $getDiscountPrice }}
@@ -90,9 +90,9 @@ use App\Models\Currency;
                 @endif
             </div>
             <?php $isProductNew = Product::isProductNew($product['id']); ?>
-            @if($isProductNew=="Yes")
+            @if($isProductNew == "Yes")
             <div class="tag new">
-                <span>NEW</span>
+                <span>NOUVEAU</span>
             </div>
             @endif
         </div>
