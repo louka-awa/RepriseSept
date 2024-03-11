@@ -76,19 +76,19 @@
                         <ul>
                             <li>
                                 <i class="fas fa-location-arrow u-s-m-r-9"></i>
-                                <span>Chaîne YouTube des Loukaawa</span>
+                                <span>Chaîne YouTube de Loukaawa</span>
                             </li>
                             <li>
-                                <a href="tel:+111-222-333">
+                                <a href="tel:+242069337518">
                                     <i class="fas fa-phone u-s-m-r-9"></i>
-                                    <span>+111-222-333</span>
+                                    <span>+242 06 933 75 18</span>
                                 </a>
                             </li>
                             <li>
-                                <a href="mailto:info@sitemakers.in">
+                                <a href="mailto:loukaawa@gmail.com">
                                     <i class="fas fa-envelope u-s-m-r-9"></i>
                                     <span>
-                                        info@sitemakers.in</span>
+                                        loukaawa@gmail.com</span>
                                 </a>
                             </li>
                         </ul>
@@ -102,12 +102,12 @@
             <div class="social-media-wrapper">
                 <ul class="social-media-list">
                     <li>
-                        <a target="_blank" href="https://www.facebook.com/stackdevelopers2">
+                        <a target="_blank" href="https://www.facebook.com/loukaawa">
                             <i class="fab fa-facebook-f"></i>
                         </a>
                     </li>
                     <li>
-                        <a target="_blank" href="https://twitter.com/stacdevelopers">
+                        <a target="_blank" href="https://twitter.com/loukaawa">
                             <i class="fab fa-twitter"></i>
                         </a>
                     </li>
@@ -138,7 +138,7 @@
                     </li>
                 </ul>
             </div>
-            <p class="copyright-text">Droits d'auteur &copy; 202
+            <p class="copyright-text">Droits d'auteur &copy; 2024
                 <a target="_blank" rel="nofollow" href="https://loukaawa.com">Loukaawa</a> | Tous droits réservés</p>
         </div>
     </div>

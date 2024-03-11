@@ -50,7 +50,7 @@ use App\Models\Currency;
                     </div> -->
                 </div>
                 <?php $getDiscountPrice = Product::getDiscountPrice($product['id']); ?>
-                @if(isset($_GET['cy']) && $_GET['cy'] != "INR")
+                @if(isset($_GET['cy']) && $_GET['cy'] != "F CFA")
                     @php
                         $getCurrency = Currency::where('currency_code',$_GET['cy'])->first()->toArray();
                     @endphp
@@ -74,16 +74,16 @@ use App\Models\Currency;
                     @if($getDiscountPrice > 0)
                     <div class="price-template">
                         <div class="item-new-price">
-                            INR {{ $getDiscountPrice }}
+                            F CFA {{ $getDiscountPrice }}
                         </div>
                         <div class="item-old-price">
-                            INR {{ $product['product_price'] }}
+                            F CFA {{ $product['product_price'] }}
                         </div>
                     </div>
                     @else
                     <div class="price-template">
                         <div class="item-new-price">
-                            INR {{ $product['product_price'] }}
+                            F CFA {{ $product['product_price'] }}
                         </div>
                     </div>
                     @endif

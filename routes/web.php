@@ -27,10 +27,10 @@ require __DIR__.'/auth.php';
 
 Route::prefix('/admin')->namespace('App\Http\Controllers\Admin')->group(function(){
     // Admin Login Route
-    Route::match(['get','post'],'login','AdminController@login');    
+    Route::match(['get','post'],'login','AdminController@login');
     Route::group(['middleware'=>['admin']],function(){
         // Admin Dashboard Route
-        Route::get('dashboard','AdminController@dashboard');  
+        Route::get('dashboard','AdminController@dashboard');
 
         // Update Admin Password
         Route::match(['get','post'],'update-admin-password','AdminController@updateAdminPassword');
@@ -57,7 +57,7 @@ Route::prefix('/admin')->namespace('App\Http\Controllers\Admin')->group(function
         Route::post('update-admin-status','AdminController@updateAdminStatus');
 
         // Admin Logout
-        Route::get('logout','AdminController@logout');  
+        Route::get('logout','AdminController@logout');
 
         // Sections
         Route::get('sections','SectionController@sections');
@@ -173,7 +173,7 @@ Route::namespace('App\Http\Controllers\Front')->group(function(){
     $catUrls = Category::select('url')->where('status',1)->get()->pluck('url')->toArray();
     /*dd($catUrls); die;*/
     foreach ($catUrls as $key => $url) {
-        Route::match(['get','post'],'/'.$url,'ProductsController@listing');
+        Route::match(['get','post'],'/'.$url,'ProductsController@listing')->name('recherche');
     }
 
     // CMS Pages Routes

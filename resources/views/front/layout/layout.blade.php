@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html class="no-js" lang="en-US">
+<html class="no-js" lang="fr">
 
 <head>
     <meta charset="UTF-8">
@@ -10,15 +10,15 @@
     <meta name="csrf-token" content="{{ csrf_token() }}" />
     <meta name="description" content="">
     <meta name="author" content="">
-    <title>@if(!empty($meta_title)){{ $meta_title }} @else Laravel Multi Vendor E-commerce Template - By Stack Developers Youtube Channel @endif</title>
+    <title>@if(!empty($meta_title)){{ $meta_title }} @else Modèle de commerce électronique multi-fournisseurs Laravel - Par la chaîne YouTube Stack Developers @endif</title>
     @if(!empty($meta_description))<meta name="description" content="{{ $meta_description }}">@endif
-    
+
     @if(!empty($meta_keywords))<meta name="keywords" content="{{ $meta_keywords }}">@endif
-    <!-- Standard Favicon -->
+    <!-- Favicon standard -->
     <link href="favicon.ico" rel="shortcut icon">
-    <!-- Base Google Font for Web-app -->
+    <!-- Police Google de base pour l'application Web -->
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700" rel="stylesheet">
-    <!-- Google Fonts for Banners only -->
+    <!-- Polices Google pour les bannières uniquement -->
     <link href="https://fonts.googleapis.com/css?family=Raleway:400,800" rel="stylesheet">
     <!-- Bootstrap 4 -->
     <link rel="stylesheet" href="{{ url('front/css/bootstrap.min.css') }}">
@@ -26,39 +26,39 @@
     <link rel="stylesheet" href="{{ url('front/css/fontawesome.min.css') }}">
     <!-- Ion-Icons 4 -->
     <link rel="stylesheet" href="{{ url('front/css/ionicons.min.css') }}">
-    <!-- Animate CSS -->
+    <!-- CSS animé -->
     <link rel="stylesheet" href="{{ url('front/css/animate.min.css') }}">
     <!-- Owl-Carousel -->
     <link rel="stylesheet" href="{{ url('front/css/owl.carousel.min.css') }}">
     <!-- Jquery-Ui-Range-Slider -->
     <link rel="stylesheet" href="{{ url('front/css/jquery-ui-range-slider.min.css') }}">
-    <!-- Utility -->
+    <!-- Utilitaire -->
     <link rel="stylesheet" href="{{ url('front/css/utility.css') }}">
-    <!-- Main -->
+    <!-- Principal -->
     <link rel="stylesheet" href="{{ url('front/css/bundle.css') }}">
     <!-- Zoom -->
     <link rel="stylesheet" href="{{ url('front/css/easyzoom.css') }}">
-    <!-- Custom -->
+    <!-- Personnalisé -->
     <link rel="stylesheet" href="{{ url('front/css/custom.css') }}">
 </head>
 
 <body>
 
-    <!-- Google Translate Script -->
+    <!-- Script Google Translate -->
    <div id="google_translate_element"></div>
    <script type="text/javascript">
       function googleTranslateElementInit() {
          new google.translate.TranslateElement({
-            pageLanguage: 'en', layout: 
-            google.translate.TranslateElement.InlineLayout.HORIZONTAL, autoDisplay: 
-            false, includedLanguages: 'en,fr,de,es,hi,ur', gaTrack: true, gaId: 'AIzaSyDdMXtJJuAjvJdkVDNsSXVLmCSpwfH1GeU'
+            pageLanguage: 'fr', layout:
+            google.translate.TranslateElement.InlineLayout.HORIZONTAL, autoDisplay:
+            false, includedLanguages: 'fr,en,de,es', gaTrack: true, gaId: 'AIzaSyDdMXtJJuAjvJdkVDNsSXVLmCSpwfH1GeU'
             }, 'google_translate_element');
       }
    </script>
    <script type="text/javascript" src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 
 <div class="loader">
-   <img src="{{ asset('front/images/loaders/loader.gif') }}" alt="loading..." />
+   <img src="{{ asset('front/images/loaders/loader.gif') }}" alt="Chargement..." />
 </div>
 
 <!-- app -->
@@ -73,8 +73,8 @@
 <div class="app-issue">
     <div class="vertical-center">
         <div class="text-center">
-            <h1>You are using an outdated browser.</h1>
-            <span>This web app is not compatible with following browser. Please upgrade your browser to improve your security and experience.</span>
+            <h1>Vous utilisez un navigateur obsolète.</h1>
+            <span>Cette application Web n'est pas compatible avec le navigateur suivant. Veuillez mettre à jour votre navigateur pour améliorer votre sécurité et votre expérience.</span>
         </div>
     </div>
 </div>
@@ -87,8 +87,8 @@
     <div class="app-issue">
         <div class="vertical-center">
             <div class="text-center">
-                <h1>JavaScript is disabled in your browser.</h1>
-                <span>Please enable JavaScript in your browser or upgrade to a JavaScript-capable browser.</span>
+                <h1>JavaScript est désactivé dans votre navigateur.</h1>
+                <span>Veuillez activer JavaScript dans votre navigateur ou passer à un navigateur compatible avec JavaScript.</span>
             </div>
         </div>
     </div>
@@ -164,10 +164,10 @@ ga('send', 'pageview')
             var $this = $(this);
 
             if ($this.data("active") === true) {
-                $this.text("Switch on").data("active", false);
+                $this.text("Désactiver").data("active", false);
                 api2.teardown();
             } else {
-                $this.text("Switch off").data("active", true);
+                $this.text("Activer").data("active", true);
                 api2._init();
             }
         });

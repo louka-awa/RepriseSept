@@ -1,103 +1,86 @@
 @extends('front.layout.layout')
 @section('content')
-<!-- Page Introduction Wrapper -->
+<!-- En-tête de page -->
 <div class="page-style-a">
 <div class="container">
     <div class="page-intro">
-        <h2>Shop</h2>
+        <h2>Boutique</h2>
         <ul class="bread-crumb">
             <li class="has-separator">
                 <i class="ion ion-md-home"></i>
-                <a href="index.html">Home</a>
+                <a href="/">Accueil</a>
             </li>
             <li class="is-marked">
-                <a href="listing.html">Shop</a>
+                <a href="{{route('recherche')}}">Boutique</a>
             </li>
         </ul>
     </div>
 </div>
 </div>
-<!-- Page Introduction Wrapper /- -->
-<!-- Shop-Page -->
+<!-- En-tête de page /- -->
+<!-- Page Boutique -->
 <div class="page-shop u-s-p-t-80">
 <div class="container">
-    <!-- Shop-Intro -->
+    <!-- Introduction de la boutique -->
     <div class="shop-intro">
         <ul class="bread-crumb">
             <li class="has-separator">
-                <a href="{{ url('/') }}">Home</a>
+                <a href="{{ url('/') }}">Accueil</a>
             </li>
             <?php echo $categoryDetails['breadcrumbs']; ?>
         </ul>
     </div>
-    <!-- Shop-Intro /- -->
+    <!-- Introduction de la boutique /- -->
     <div class="row">
-        <!-- Shop-Left-Side-Bar-Wrapper -->
+        <!-- Barre latérale gauche de la boutique -->
         @include('front.products.filters')
-        <!-- Shop-Left-Side-Bar-Wrapper /- -->
-        <!-- Shop-Right-Wrapper -->
+        <!-- Barre latérale gauche de la boutique /- -->
+        <!-- Contenu principal de la boutique -->
         <div class="col-lg-9 col-md-9 col-sm-12">
-            <!-- Page-Bar -->
+            <!-- Barre de page -->
             <div class="page-bar clearfix">
-                <!-- <div class="shop-settings">
-                    <a id="list-anchor">
-                        <i class="fas fa-th-list"></i>
-                    </a>
-                    <a id="grid-anchor" class="active">
-                        <i class="fas fa-th"></i>
-                    </a>
-                </div> -->
+                <!-- Tri des produits -->
                 @if(!isset($_REQUEST['search']))
-                <!-- Toolbar Sorter 1  -->
+                <!-- Trieur de barre d'outils 1  -->
                 <form name="sortProducts" id="sortProducts">
                     <input type="hidden" name="url" id="url" value="{{ $url }}">
                     <div class="toolbar-sorter">
                         <div class="select-box-wrapper">
-                            <label class="sr-only" for="sort-by">Sort By</label>
+                            <label class="sr-only" for="sort-by">Trier par</label>
                             <select name="sort" id="sort" class="select-box">
-                                <!-- <option selected="selected" value="">Sort By: Best Selling</option> -->
-                                <option selected="" value="">Select</option>
-                                <option value="product_latest" @if(isset($_GET['sort']) && $_GET['sort']=="product_latest") selected="" @endif>Sort By: Latest</option>
-                                <option value="price_lowest" @if(isset($_GET['sort']) && $_GET['sort']=="price_lowest")selected="" @endif>Sort By: Lowest Price</option>
-                                <option value="price_highest" @if(isset($_GET['sort']) && $_GET['sort']=="price_highest") selected="" @endif>Sort By: Highest Price</option>
-                                <option value="name_a_z" @if(isset($_GET['sort']) && $_GET['sort']=="name_a_z") selected="" @endif>Sort By: Name A - Z</option>
-                                <option value="name_z_a" @if(isset($_GET['sort']) && $_GET['sort']=="name_z_a") selected="" @endif>Sort By: Name Z - A</option>
-                                <!-- <option value="">Sort By: Best Rating</option> -->
+                                <!-- <option selected="selected" value="">Trier par : Meilleures ventes</option> -->
+                                <option selected="" value="">Sélectionner</option>
+                                <option value="product_latest" @if(isset($_GET['sort']) && $_GET['sort']=="product_latest") selected="" @endif>Trier par : Plus récent</option>
+                                <option value="price_lowest" @if(isset($_GET['sort']) && $_GET['sort']=="price_lowest")selected="" @endif>Trier par : Prix le plus bas</option>
+                                <option value="price_highest" @if(isset($_GET['sort']) && $_GET['sort']=="price_highest") selected="" @endif>Trier par : Prix le plus élevé</option>
+                                <option value="name_a_z" @if(isset($_GET['sort']) && $_GET['sort']=="name_a_z") selected="" @endif>Trier par : Nom A - Z</option>
+                                <option value="name_z_a" @if(isset($_GET['sort']) && $_GET['sort']=="name_z_a") selected="" @endif>Trier par : Nom Z - A</option>
+                                <!-- <option value="">Trier par : Meilleure note</option> -->
                             </select>
                         </div>
                     </div>
                 </form>
-                <!-- //end Toolbar Sorter 1  -->
+                <!-- // Fin Trieur de barre d'outils 1  -->
                 @endif
-                <!-- Toolbar Sorter 2  -->
-                <!-- <div class="toolbar-sorter-2">
-                    <div class="select-box-wrapper">
-                        <label class="sr-only" for="show-records">Show Records Per Page</label>
-                        <select class="select-box" id="show-records">
-                            <option selected="selected" value="">Show: 8</option>
-                            <option value="">Show: 16</option>
-                            <option value="">Show: 28</option>
-                        </select>
-                    </div>
-                </div> -->
+                <!-- Trieur de barre d'outils 2  -->
                 <div class="toolbar-sorter-2">
                     <div class="select-box-wrapper">
-                        <label class="sr-only" for="show-records">Show Records Per Page</label>
+                        <label class="sr-only" for="show-records">Afficher les enregistrements par page</label>
                         <select class="select-box" id="show-records">
-                            <option selected="selected" value="">Showing: {{ count($categoryProducts) }}</option>
-                            <option value="">Showing: All</option>
+                            <option selected="selected" value="">Affichage : {{ count($categoryProducts) }}</option>
+                            <option value="">Affichage : Tous</option>
                         </select>
                     </div>
                 </div>
-                <!-- //end Toolbar Sorter 2  -->
+                <!-- // Fin Trieur de barre d'outils 2  -->
             </div>
-            <!-- Page-Bar /- -->
-            <!-- Row-of-Product-Container -->
+            <!-- Barre de page /- -->
+            <!-- Conteneur de produits -->
             <div class="filter_products">
                 @include('front.products.ajax_products_listing')
             </div>
             @if(!isset($_REQUEST['search']))
-                <!-- Row-of-Product-Container /- -->
+                <!-- Pagination -->
                 @if(isset($_GET['sort']))
                     <div>{{ $categoryProducts->appends(['sort'=>$_GET['sort']])->links() }}</div>
                 @else
@@ -107,14 +90,14 @@
             <div>&nbsp;</div>
             <div>{{ $categoryDetails['categoryDetails']['description'] }}</div>
         </div>
-        <!-- Shop-Right-Wrapper /- -->
+        <!-- Contenu principal de la boutique /- -->
 
-        <!-- Shop-Pagination -->
+        <!-- Pagination de la boutique -->
         <?php /* <div class="pagination-area">
             <div class="pagination-number">
                 <ul>
                     <li style="display: none">
-                        <a href="shop-v1-root-category.html" title="Previous">
+                        <a href="shop-v1-root-category.html" title="Précédent">
                             <i class="fa fa-angle-left"></i>
                         </a>
                     </li>
@@ -134,16 +117,16 @@
                         <a href="shop-v1-root-category.html">10</a>
                     </li>
                     <li>
-                        <a href="shop-v1-root-category.html" title="Next">
+                        <a href="shop-v1-root-category.html" title="Suivant">
                             <i class="fa fa-angle-right"></i>
                         </a>
                     </li>
                 </ul>
             </div>
         </div> */ ?>
-        <!-- Shop-Pagination /- -->
+        <!-- Pagination de la boutique /- -->
     </div>
 </div>
 </div>
-<!-- Shop-Page /- --> 
+<!-- Page Boutique /- -->
 @endsection
