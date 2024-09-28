@@ -10,7 +10,7 @@
     <meta name="csrf-token" content="{{ csrf_token() }}" />
     <meta name="description" content="">
     <meta name="author" content="">
-    <title>@if(!empty($meta_title)){{ $meta_title }} @else Modèle de commerce électronique multi-fournisseurs Laravel - Par la chaîne YouTube Stack Developers @endif</title>
+    <title>@if(!empty($meta_title)){{ $meta_title }} @else Marché de biens et services en ligne au Congo-Brazzaville, Sois plus visible en ligne @endif</title>
     @if(!empty($meta_description))<meta name="description" content="{{ $meta_description }}">@endif
 
     @if(!empty($meta_keywords))<meta name="keywords" content="{{ $meta_keywords }}">@endif

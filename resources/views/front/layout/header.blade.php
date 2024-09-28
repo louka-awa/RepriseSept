@@ -11,7 +11,7 @@ $page_url = Request::url();
 <header>
     <!-- Haut de l'en-tête -->
     <div class="full-layer-outer-header">
-        <div class="container clearfix">
+        <div class="container-fluid  clearfix">
             <nav>
                 <ul class="primary-nav g-nav">
                     <li>
@@ -117,7 +117,7 @@ $page_url = Request::url();
     <!-- Haut de l'en-tête /- -->
     <!-- En-tête du milieu -->
     <div class="full-layer-mid-header">
-        <div class="container">
+        <div class="container-fluid">
             <div class="row clearfix align-items-center">
                 <div class="col-lg-3 col-md-9 col-sm-6">
                     <div class="brand-logo text-lg-center">
@@ -193,7 +193,7 @@ $page_url = Request::url();
     <!-- Mini panier /- -->
     <!-- Bas de l'en-tête -->
     <div class="full-layer-bottom-header">
-        <div class="container">
+        <div class="container-fluid">
             <div class="row align-items-center">
                 <div class="col-lg-3">
                     <div class="v-menu v-close">
