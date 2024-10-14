@@ -5,12 +5,12 @@
 	<title></title>
 </head>
 <body>
-	<tr><td>Dear {{ $name }}!</td></tr>
+	<tr><td>Cher/Chère {{ $name }} !</td></tr>
 	<tr><td>&nbsp;<br></td></tr>
-	<tr><td>Please click on below link to confirm your Vendor Account :-</td></tr>
+	<tr><td>Veuillez cliquer sur le lien ci-dessous pour confirmer votre compte vendeur :</td></tr>
 	<tr><td><a href="{{ url('vendor/confirm/'.$code) }}">{{ url('vendor/confirm/'.$code) }}</a></td></tr>
 	<tr><td>&nbsp;<br></td></tr>
-	<tr><td>Thanks & Regards,</td></tr>
+	<tr><td>Merci et cordialement,</td></tr>
 	<tr><td>&nbsp;</td></tr>
 	<tr><td>Stack Developers</td></tr>
 </body>

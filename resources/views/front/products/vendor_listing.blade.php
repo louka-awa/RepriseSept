@@ -8,7 +8,7 @@
         <ul class="bread-crumb">
             <li class="has-separator">
                 <i class="ion ion-md-home"></i>
-                <a href="index.html">Home</a>
+                <a href="index.html">Accueil</a>
             </li>
             <li class="is-marked">
                 <a href="listing.html">{{ $getVendorShop }}</a>
@@ -25,7 +25,7 @@
     <div class="shop-intro">
         <ul class="bread-crumb">
             <li class="has-separator">
-                <a href="{{ url('/') }}">Home</a>
+                <a href="{{ url('/') }}">Accueil</a>
             </li>
             <li>{{ $getVendorShop }}</li>
         </ul>

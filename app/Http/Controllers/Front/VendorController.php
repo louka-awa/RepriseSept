@@ -22,38 +22,38 @@ class VendorController extends Controller
             $data = $request->all();
            /* echo "<pre>"; print_r($data); die;*/
 
-            // Validate Vendor 
-            $rules = [
+            // Valider le vendeur
+            $regles = [
                 "name" => "required",
                 "email" => "required|email|unique:admins|unique:vendors",
                 "mobile" => "required|min:10|numeric|unique:admins|unique:vendors",
                 "accept" => "required"
             ];
-            $customMessages = [
-                "name.required" => "Name is required",
-                "email.required" => "Email is required",
-                "email.unique" => "Email already exists",
-                "mobile.required" => "Mobile is required",
-                "mobile.unique" => "Mobile already exists",
-                "accept.required" => "Please accept T&C",
+            $messagesPersonnalises = [
+                "name.required" => "Le nom est obligatoire",
+                "email.required" => "L'email est obligatoire",
+                "email.unique" => "L'email existe déjà",
+                "mobile.required" => "Le mobile est obligatoire",
+                "mobile.unique" => "Le mobile existe déjà",
+                "accept.required" => "Veuillez accepter les termes et conditions",
             ];
-            $validator = Validator::make($data,$rules,$customMessages);
+            $validator = Validator::make($data, $regles, $messagesPersonnalises);
             if($validator->fails()){
                 return Redirect::back()->withErrors($validator);
             }
 
             DB::beginTransaction();
 
-            // Create Vendor Account
+            // Créer un compte vendeur
 
-            // Insert the Vendor details in vendors table
+            // Insérer les détails du vendeur dans la table `vendors`
             $vendor = new Vendor;
             $vendor->name = $data['name'];
             $vendor->mobile = $data['mobile'];
             $vendor->email = $data['email'];
             $vendor->status = 0;
 
-            // Set Default Timezone to India
+            // Définir le fuseau horaire par défaut sur l'Inde
             date_default_timezone_set("Asia/Kolkata");
             $vendor->created_at = date("Y-m-d H:i:s");
             $vendor->updated_at = date("Y-m-d H:i:s");
@@ -61,7 +61,7 @@ class VendorController extends Controller
 
             $vendor_id = DB::getPdo()->lastInsertId();
 
-            // Insert the Vendor details in admins table
+            // Insérer les détails du vendeur dans la table `admins`
             $admin = new Admin;
             $admin->type = 'vendor';
             $admin->vendor_id = $vendor_id;
@@ -71,13 +71,13 @@ class VendorController extends Controller
             $admin->password = bcrypt($data['password']);
             $admin->status = 0;
 
-            // Set Default Timezone to India
+            // Définir le fuseau horaire par défaut sur l'Inde
             date_default_timezone_set("Asia/Kolkata");
             $admin->created_at = date("Y-m-d H:i:s");
             $admin->updated_at = date("Y-m-d H:i:s");
             $admin->save();
 
-            // Send Confirmation Email
+            // Envoyer un email de confirmation
             $email = $data['email'];
             $messageData = [
                 'email' => $data['email'],
@@ -85,54 +85,51 @@ class VendorController extends Controller
                 'code' => base64_encode($data['email'])
             ];
 
-            Mail::send('emails.vendor_confirmation',$messageData,function($message)use($email){
-                $message->to($email)->subject('Confirm your Vendor Account');
+            Mail::send('emails.vendor_confirmation', $messageData, function($message) use($email){
+                $message->to($email)->subject('Confirmez votre compte vendeur');
             });
 
             DB::commit();
 
-
-            // Redirect back Vendor with Success Message
-            $message = "Thanks for registering as Vendor. Please confirm your email to activate your account.";
-            return redirect()->back()->with('success_message',$message);
-
+            // Rediriger le vendeur avec un message de succès
+            $message = "Merci de vous être inscrit en tant que vendeur. Veuillez confirmer votre email pour activer votre compte.";
+            return redirect()->back()->with('success_message', $message);
         }
     }
 
     public function confirmVendor($email){
-        // Decode Vendor Email
+        // Décoder l'email du vendeur
         $email = base64_decode($email);
-        // Check Vendor Email exists
-        $vendorCount = Vendor::where('email',$email)->count();
-        if($vendorCount>0){
-            // Vendor Email is already activated or not
-            $vendorDetails = Vendor::where('email',$email)->first();
+        // Vérifier si l'email du vendeur existe
+        $vendorCount = Vendor::where('email', $email)->count();
+        if($vendorCount > 0){
+            // L'email du vendeur est-il déjà activé ou non
+            $vendorDetails = Vendor::where('email', $email)->first();
             if($vendorDetails->confirm == "Yes"){
-                $message = "Your Vendor Account is already confirmed. You can login";
-                return redirect('vendor/login-register')->with('error_message',$message);
+                $message = "Votre compte vendeur est déjà confirmé. Vous pouvez vous connecter.";
+                return redirect('vendor/login-register')->with('error_message', $message);
             }else{
-                // Update confirm column to Yes in both admins / vendors tables to activate account
-                Admin::where('email',$email)->update(['confirm'=>'Yes']);
-                Vendor::where('email',$email)->update(['confirm'=>'Yes']);
+                // Mettre à jour la colonne de confirmation à Oui dans les tables `admins` et `vendors` pour activer le compte
+                Admin::where('email', $email)->update(['confirm' => 'Yes']);
+                Vendor::where('email', $email)->update(['confirm' => 'Yes']);
 
-                // Send Register Email
+                // Envoyer un email de confirmation d'inscription
                 $messageData = [
                     'email' => $email,
                     'name' => $vendorDetails->name,
                     'mobile' => $vendorDetails->mobile
                 ];
 
-                Mail::send('emails.vendor_confirmed',$messageData,function($message)use($email){
-                    $message->to($email)->subject('Your Vendor Account Confirmed');
+                Mail::send('emails.vendor_confirmed', $messageData, function($message) use($email){
+                    $message->to($email)->subject('Votre compte vendeur a été confirmé');
                 });
 
-                // Redirect to Vendor Login/Register page with Success message
-                $message = "Your Vendor Email account is confirmed. You can login and add your personal, business and bank details to activate your Vendor Account to add products";
-                return redirect('vendor/login-register')->with('success_message',$message);
+                // Rediriger vers la page de connexion/inscription des vendeurs avec un message de succès
+                $message = "Votre compte vendeur a été confirmé. Vous pouvez vous connecter et ajouter vos informations personnelles, professionnelles et bancaires pour activer votre compte vendeur et ajouter des produits.";
+                return redirect('vendor/login-register')->with('success_message', $message);
             }
         }else{
             abort(404);
         }
-
     }
 }
