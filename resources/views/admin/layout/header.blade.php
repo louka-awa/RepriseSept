@@ -2,7 +2,7 @@
     <div class="text-center navbar-brand-wrapper d-flex align-items-center justify-content-center">
         <!-- <a class="navbar-brand brand-logo mr-5" href="index.html"><img src="{{ asset('admin/images/logo.svg') }}" class="mr-2" alt="logo"/></a>
         <a class="navbar-brand brand-logo-mini" href="index.html"><img src="{{ asset('admin/images/logo-mini.svg') }}" alt="logo"/></a> -->
-        Laravel 9 Admin Panel
+        Panneau d'administration de Loukaawa
     </div>
     <div class="navbar-menu-wrapper d-flex align-items-center justify-content-end">
         <button class="navbar-toggler navbar-toggler align-self-center" type="button" data-toggle="minimize">
@@ -16,7 +16,7 @@
                         <i class="icon-search"></i>
                         </span>
                     </div>
-                    <input type="text" class="form-control" id="navbar-search-input" placeholder="Search now" aria-label="search" aria-describedby="search">
+                    <input type="text" class="form-control" id="navbar-search-input" placeholder="Rechercher maintenant" aria-label="search" aria-describedby="search">
                 </div>
             </li>
         </ul>
@@ -35,9 +35,9 @@
                             </div>
                         </div>
                         <div class="preview-item-content">
-                            <h6 class="preview-subject font-weight-normal">Application Error</h6>
+                            <h6 class="preview-subject font-weight-normal">Erreur d'application</h6>
                             <p class="font-weight-light small-text mb-0 text-muted">
-                                Just now
+                                À l'instant
                             </p>
                         </div>
                     </a>
@@ -48,9 +48,9 @@
                             </div>
                         </div>
                         <div class="preview-item-content">
-                            <h6 class="preview-subject font-weight-normal">Settings</h6>
+                            <h6 class="preview-subject font-weight-normal">Paramètres</h6>
                             <p class="font-weight-light small-text mb-0 text-muted">
-                                Private message
+                                Message privé
                             </p>
                         </div>
                     </a>
@@ -61,9 +61,9 @@
                             </div>
                         </div>
                         <div class="preview-item-content">
-                            <h6 class="preview-subject font-weight-normal">New user registration</h6>
+                            <h6 class="preview-subject font-weight-normal">Nouvelle inscription d'utilisateur</h6>
                             <p class="font-weight-light small-text mb-0 text-muted">
-                                2 days ago
+                                Il y a 2 jours
                             </p>
                         </div>
                     </a>
@@ -72,19 +72,19 @@
             <li class="nav-item nav-profile dropdown">
                 <a class="nav-link dropdown-toggle" href="{{ url('admin/update-admin-details') }}" data-toggle="dropdown" id="profileDropdown">
                 @if(!empty(Auth::guard('admin')->user()->image))
-                    <img src="{{ url('admin/images/photos/'.Auth::guard('admin')->user()->image) }}" alt="profile">
+                    <img src="{{ url('admin/images/photos/'.Auth::guard('admin')->user()->image) }}" alt="profil">
                 @else
-                    <img src="{{ url('admin/images/photos/no-image.gif') }}" alt="profile">
+                    <img src="{{ url('admin/images/photos/no-image.gif') }}" alt="profil">
                 @endif
                 </a>
                 <div class="dropdown-menu dropdown-menu-right navbar-dropdown" aria-labelledby="profileDropdown">
                     <a href="{{ url('admin/update-admin-details') }}" class="dropdown-item">
                     <i class="ti-settings text-primary"></i>
-                    Settings
+                    Paramètres
                     </a>
                     <a href="{{ url('admin/logout') }}" class="dropdown-item">
                     <i class="ti-power-off text-primary"></i>
-                    Logout
+                    Déconnexion
                     </a>
                 </div>
             </li>

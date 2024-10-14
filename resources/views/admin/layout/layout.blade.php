@@ -1,24 +1,24 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 
 <head>
-  <!-- Required meta tags -->
+  <!-- Méta tags requis -->
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta name="csrf-token" content="{{ csrf_token() }}" />
-  <title>Skydash Admin</title>
+  <title>Loukaawa, marché de ventes en ligne</title>
   <!-- plugins:css -->
   <link rel="stylesheet" href="{{ url('admin/vendors/feather/feather.css') }}">
   <link rel="stylesheet" href="{{ url('admin/vendors/ti-icons/css/themify-icons.css') }}">
   <link rel="stylesheet" href="{{ url('admin/vendors/css/vendor.bundle.base.css') }}">
   <!-- endinject -->
-  <!-- Plugin css for this page -->
+  <!-- Plugin css pour cette page -->
   <link rel="stylesheet" href="{{ url('admin/vendors/mdi/css/materialdesignicons.min.css') }}">
-  <!-- Plugin css for this page -->
+  <!-- Plugin css pour cette page -->
   <link rel="stylesheet" href="{{ url('admin/vendors/datatables.net-bs4/dataTables.bootstrap4.css') }}">
   <link rel="stylesheet" href="{{ url('admin/vendors/ti-icons/css/themify-icons.css') }}">
   <link rel="stylesheet" type="text/css" href="{{ url('admin/js/select.dataTables.min.css') }}">
-  <!-- End plugin css for this page -->
+  <!-- Fin du css du plugin pour cette page -->
   <!-- inject:css -->
   <link rel="stylesheet" href="{{ url('admin/css/vertical-layout-light/style.css') }}">
   <!-- endinject -->
@@ -46,13 +46,13 @@
   <!-- plugins:js -->
   <script src="{{ url('admin/vendors/js/vendor.bundle.base.js') }}"></script>
   <!-- endinject -->
-  <!-- Plugin js for this page -->
+  <!-- Plugin js pour cette page -->
   <script src="{{ url('admin/vendors/chart.js/Chart.min.js') }}"></script>
   <script src="{{ url('admin/vendors/datatables.net/jquery.dataTables.js') }}"></script>
   <script src="{{ url('admin/vendors/datatables.net-bs4/dataTables.bootstrap4.js') }}"></script>
   <script src="{{ url('admin/js/dataTables.select.min.js') }}"></script>
 
-  <!-- End plugin js for this page -->
+  <!-- Fin du js du plugin pour cette page -->
   <!-- inject:js -->
   <script src="{{ url('admin/js/off-canvas.js') }}"></script>
   <script src="{{ url('admin/js/hoverable-collapse.js') }}"></script>
@@ -60,20 +60,20 @@
   <script src="{{ url('admin/js/settings.js') }}"></script>
   <script src="{{ url('admin/js/todolist.js') }}"></script>
   <!-- endinject -->
-  <!-- Custom js for this page-->
+  <!-- Js personnalisé pour cette page -->
   <script src="{{ url('admin/js/dashboard.js') }}"></script>
   <script src="{{ url('admin/js/Chart.roundedBarCharts.js') }}"></script>
-  <!-- End custom js for this page-->
-  <!-- Custom Admin JS -->
+  <!-- Fin du js personnalisé pour cette page -->
+  <!-- Js personnalisé pour l'administration -->
   <script src="{{ url('admin/js/custom.js') }}"></script>
-  <!-- End Custom Admin JS -->
-  <!-- Confirm deletion -->
+  <!-- Fin du js personnalisé pour l'administration -->
+  <!-- Confirmer la suppression -->
   <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
   <script src="https://cdn.tiny.cloud/1/no-api-key/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>
   <script>
      tinymce.init({
-       selector: 'textarea#myeditorinstance', // Replace this CSS selector to match the placeholder element for TinyMCE
+       selector: 'textarea#myeditorinstance', // Remplacez ce sélecteur CSS pour correspondre à l'élément d'espace réservé pour TinyMCE
        plugins: 'powerpaste advcode table lists checklist',
        toolbar: 'undo redo | blocks| bold italic | bullist numlist checklist | code | table'
      });
@@ -81,12 +81,12 @@
 
   <script src="https://cdn.ckeditor.com/ckeditor5/38.1.0/super-build/ckeditor.js"></script>
         <!--
-            Uncomment to load the Spanish translation
+            Décommentez pour charger la traduction espagnole
             <script src="https://cdn.ckeditor.com/ckeditor5/38.1.0/super-build/translations/es.js"></script>
         -->
         <script>
-            // This sample still does not showcase all CKEditor 5 features (!)
-            // Visit https://ckeditor.com/docs/ckeditor5/latest/features/index.html to browse all the features.
+            // Cet exemple ne montre toujours pas toutes les fonctionnalités de CKEditor 5 (!)
+            // Visitez https://ckeditor.com/docs/ckeditor5/latest/features/index.html pour parcourir toutes les fonctionnalités.
             CKEDITOR.ClassicEditor.create(document.getElementById("editor"), {
                 // https://ckeditor.com/docs/ckeditor5/latest/features/toolbar/toolbar.html#extended-toolbar-configuration-format
                 toolbar: {
@@ -108,7 +108,7 @@
                     ],
                     shouldNotGroupWhenFull: true
                 },
-                // Changing the language of the interface requires loading the language file using the <script> tag.
+                // Changer la langue de l'interface nécessite de charger le fichier de langue à l'aide de la balise <script>.
                 // language: 'es',
                 list: {
                     properties: {
@@ -120,17 +120,17 @@
                 // https://ckeditor.com/docs/ckeditor5/latest/features/headings.html#configuration
                 heading: {
                     options: [
-                        { model: 'paragraph', title: 'Paragraph', class: 'ck-heading_paragraph' },
-                        { model: 'heading1', view: 'h1', title: 'Heading 1', class: 'ck-heading_heading1' },
-                        { model: 'heading2', view: 'h2', title: 'Heading 2', class: 'ck-heading_heading2' },
-                        { model: 'heading3', view: 'h3', title: 'Heading 3', class: 'ck-heading_heading3' },
-                        { model: 'heading4', view: 'h4', title: 'Heading 4', class: 'ck-heading_heading4' },
-                        { model: 'heading5', view: 'h5', title: 'Heading 5', class: 'ck-heading_heading5' },
-                        { model: 'heading6', view: 'h6', title: 'Heading 6', class: 'ck-heading_heading6' }
+                        { model: 'paragraph', title: 'Paragraphe', class: 'ck-heading_paragraph' },
+                        { model: 'heading1', view: 'h1', title: 'Titre 1', class: 'ck-heading_heading1' },
+                        { model: 'heading2', view: 'h2', title: 'Titre 2', class: 'ck-heading_heading2' },
+                        { model: 'heading3', view: 'h3', title: 'Titre 3', class: 'ck-heading_heading3' },
+                        { model: 'heading4', view: 'h4', title: 'Titre 4', class: 'ck-heading_heading4' },
+                        { model: 'heading5', view: 'h5', title: 'Titre 5', class: 'ck-heading_heading5' },
+                        { model: 'heading6', view: 'h6', title: 'Titre 6', class: 'ck-heading_heading6' }
                     ]
                 },
                 // https://ckeditor.com/docs/ckeditor5/latest/features/editor-placeholder.html#using-the-editor-configuration
-                placeholder: 'Welcome to CKEditor 5!',
+                placeholder: 'Bienvenue dans CKEditor 5 !',
                 // https://ckeditor.com/docs/ckeditor5/latest/features/font.html#configuring-the-font-family-feature
                 fontFamily: {
                     options: [
@@ -151,7 +151,7 @@
                     options: [ 10, 12, 14, 'default', 18, 20, 22 ],
                     supportAllValues: true
                 },
-                // Be careful with the setting below. It instructs CKEditor to accept ALL HTML markup.
+                // Faites attention avec le réglage ci-dessous. Cela indique à CKEditor d'accepter TOUT le balisage HTML.
                 // https://ckeditor.com/docs/ckeditor5/latest/features/general-html-support.html#enabling-all-html-features
                 htmlSupport: {
                     allow: [
@@ -163,7 +163,7 @@
                         }
                     ]
                 },
-                // Be careful with enabling previews
+                // Faites attention avec l'activation des aperçus
                 // https://ckeditor.com/docs/ckeditor5/latest/features/html-embed.html#content-previews
                 htmlEmbed: {
                     showPreviews: true
@@ -175,7 +175,7 @@
                         defaultProtocol: 'https://',
                         toggleDownloadable: {
                             mode: 'manual',
-                            label: 'Downloadable',
+                            label: 'Téléchargeable',
                             attributes: {
                                 download: 'file'
                             }
@@ -188,28 +188,28 @@
                         {
                             marker: '@',
                             feed: [
-                                '@apple', '@bears', '@brownie', '@cake', '@cake', '@candy', '@canes', '@chocolate', '@cookie', '@cotton', '@cream',
-                                '@cupcake', '@danish', '@donut', '@dragée', '@fruitcake', '@gingerbread', '@gummi', '@ice', '@jelly-o',
-                                '@liquorice', '@macaroon', '@marzipan', '@oat', '@pie', '@plum', '@pudding', '@sesame', '@snaps', '@soufflé',
-                                '@sugar', '@sweet', '@topping', '@wafer'
+                                '@pomme', '@ours', '@brownie', '@gâteau', '@bonbon', '@canne', '@chocolat', '@biscuit', '@coton', '@crème',
+                                '@cupcake', '@danish', '@beignet', '@dragée', '@gâteau aux fruits', '@pain d'épices', '@gomme', '@glace', '@gelée',
+                                '@liquorice', '@macaron', '@massepain', '@avoine', '@tarte', '@prune', '@pudding', '@sésame', '@snaps', '@soufflé',
+                                '@sucre', '@doux', '@garniture', '@gaufre'
                             ],
                             minimumCharacters: 1
                         }
                     ]
                 },
-                // The "super-build" contains more premium features that require additional configuration, disable them below.
-                // Do not turn them on unless you read the documentation and know how to configure them and setup the editor.
+                // Le "super-build" contient plus de fonctionnalités premium qui nécessitent une configuration supplémentaire, désactivez-les ci-dessous.
+                // Ne les activez pas à moins de lire la documentation et de savoir comment configurer et installer l'éditeur.
                 removePlugins: [
-                    // These two are commercial, but you can try them out without registering to a trial.
+                    // Ces deux plugins sont commerciaux, mais vous pouvez les essayer sans vous inscrire pour un essai.
                     // 'ExportPdf',
                     // 'ExportWord',
                     'CKBox',
                     'CKFinder',
                     'EasyImage',
-                    // This sample uses the Base64UploadAdapter to handle image uploads as it requires no configuration.
+                    // Cet exemple utilise l'adaptateur d'upload Base64 pour gérer les uploads d'images car il nécessite aucune configuration.
                     // https://ckeditor.com/docs/ckeditor5/latest/features/images/image-upload/base64-upload-adapter.html
-                    // Storing images as Base64 is usually a very bad idea.
-                    // Replace it on production website with other solutions:
+                    // Stocker les images sous forme de Base64 est généralement une très mauvaise idée.
+                    // Remplacez-le sur le site Web de production par d'autres solutions :
                     // https://ckeditor.com/docs/ckeditor5/latest/features/images/image-upload/image-upload.html
                     // 'Base64UploadAdapter',
                     'RealTimeCollaborativeComments',
@@ -222,10 +222,10 @@
                     'RevisionHistory',
                     'Pagination',
                     'WProofreader',
-                    // Careful, with the Mathtype plugin CKEditor will not load when loading this sample
-                    // from a local file system (file://) - load this site via HTTP server if you enable MathType.
+                    // Attention, avec le plugin Mathtype CKEditor ne se chargera pas en chargeant cet exemple
+                    // à partir d'un système de fichiers local (file://) - chargez ce site via le serveur HTTP si vous activez MathType.
                     'MathType',
-                    // The following features are part of the Productivity Pack and require additional license.
+                    // Les fonctionnalités suivantes font partie du pack de productivité et nécessitent une licence supplémentaire.
                     'SlashCommand',
                     'Template',
                     'DocumentOutline',
@@ -237,4 +237,3 @@
 </body>
 
 </html>
-
