@@ -25,39 +25,39 @@ Route::get('/dashboard', function () {
 
 require __DIR__.'/auth.php';
 
-Route::prefix('/admin')->namespace('App\Http\Controllers\Admin')->group(function(){
+Route::prefix('/administrateur')->namespace('App\Http\Controllers\Administrateur')->group(function(){
     // Admin Login Route
-    Route::match(['get','post'],'login','AdminController@login');
-    Route::group(['middleware'=>['admin']],function(){
+    Route::match(['get','post'],'login','AdministrateurController@login');
+    Route::group(['middleware'=>['administrateur']],function(){
         // Admin Dashboard Route
-        Route::get('dashboard','AdminController@dashboard');
+        Route::get('dashboard','AdministrateurController@dashboard');
 
         // Update Admin Password
-        Route::match(['get','post'],'update-admin-password','AdminController@updateAdminPassword');
+        Route::match(['get','post'],'update-admin-password','AdministrateurController@updateAdminPassword');
 
         // Check Admin Password
-        Route::post('check-admin-password','AdminController@checkAdminPassword');
+        Route::post('check-admin-password','AdministrateurController@checkAdminPassword');
 
         // Update Admin Details
-        Route::match(['get','post'],'update-admin-details','AdminController@updateAdminDetails');
+        Route::match(['get','post'],'update-admin-details','AdministrateurController@updateAdminDetails');
 
         // Update Vendor Details
-        Route::match(['get','post'],'update-vendor-details/{slug}','AdminController@updateVendorDetails');
+        Route::match(['get','post'],'update-vendor-details/{slug}','AdministrateurController@updateVendorDetails');
 
         // Update Vendor Commission
-        Route::post('update-vendor-commission','AdminController@updateVendorCommission');
+        Route::post('update-vendor-commission','AdministrateurController@updateVendorCommission');
 
         // View Admins / Subadmins / Vendors
-        Route::get('admins/{type?}','AdminController@admins');
+        Route::get('admins/{type?}','AdministrateurController@admins');
 
         // View Vendor Details
-        Route::get('view-vendor-details/{id}','AdminController@viewVendorDetails');
+        Route::get('view-vendor-details/{id}','AdministrateurController@viewVendorDetails');
 
         // Update Admin Status
-        Route::post('update-admin-status','AdminController@updateAdminStatus');
+        Route::post('update-admin-status','AdministrateurController@updateAdminStatus');
 
         // Admin Logout
-        Route::get('logout','AdminController@logout');
+        Route::get('logout','AdministrateurController@logout');
 
         // Sections
         Route::get('sections','SectionController@sections');
@@ -164,7 +164,7 @@ Route::prefix('/admin')->namespace('App\Http\Controllers\Admin')->group(function
     });
 });
 
-Route::get('orders/invoice/download/{id}','App\Http\Controllers\Admin\OrderController@viewPDFInvoice');
+Route::get('orders/invoice/download/{id}','App\Http\Controllers\Administrateur\OrderController@viewPDFInvoice');
 
 Route::namespace('App\Http\Controllers\Front')->group(function(){
     Route::get('/','IndexController@index');
