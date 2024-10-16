@@ -10,27 +10,28 @@
         '<button type="button" class="btn btn-default btn-sm editable-cancel">' +
         '<i class="fa fa-fw fa-times"></i>' +
         '</button>';
+      
       $('#username').editable({
         type: 'text',
         pk: 1,
         name: 'username',
-        title: 'Enter username'
+        title: 'Entrez le nom d\'utilisateur'
       });
 
       $('#firstname').editable({
         validate: function(value) {
-          if ($.trim(value) === '') return 'This field is required';
+          if ($.trim(value) === '') return 'Ce champ est requis';
         }
       });
 
       $('#sex').editable({
         source: [{
             value: 1,
-            text: 'Male'
+            text: 'Homme'
           },
           {
             value: 2,
-            text: 'Female'
+            text: 'Femme'
           }
         ]
       });
@@ -43,7 +44,7 @@
 
       $('#vacation').editable({
         datepicker: {
-          todayBtn: 'linked'
+          todayBtn: 'lié'
         }
       });
 
@@ -57,13 +58,13 @@
       });
 
       $('#meeting_start').editable({
-        format: 'yyyy-mm-dd hh:ii',
-        viewformat: 'dd/mm/yyyy hh:ii',
+        format: 'aaaa-mm-jj hh:ii',
+        viewformat: 'jj/mm/aaaa hh:ii',
         validate: function(v) {
-          if (v && v.getDate() === 10) return 'Day cant be 10!';
+          if (v && v.getDate() === 10) return 'Le jour ne peut pas être 10 !';
         },
         datetimepicker: {
-          todayBtn: 'linked',
+          todayBtn: 'lié',
           weekStart: 1
         }
       });
@@ -80,14 +81,14 @@
       });
 
       $('#state').editable({
-        source: ["Alabama", "Alaska", "Arizona", "Arkansas", "California", "Colorado", "Connecticut", "Delaware", "Florida", "Georgia", "Hawaii", "Idaho", "Illinois", "Indiana", "Iowa", "Kansas", "Kentucky", "Louisiana", "Maine", "Maryland", "Massachusetts", "Michigan", "Minnesota", "Mississippi", "Missouri", "Montana", "Nebraska", "Nevada", "New Hampshire", "New Jersey", "New Mexico", "New York", "North Dakota", "North Carolina", "Ohio", "Oklahoma", "Oregon", "Pennsylvania", "Rhode Island", "South Carolina", "South Dakota", "Tennessee", "Texas", "Utah", "Vermont", "Virginia", "Washington", "West Virginia", "Wisconsin", "Wyoming"]
+        source: ["Alabama", "Alaska", "Arizona", "Arkansas", "Californie", "Colorado", "Connecticut", "Delaware", "Floride", "Géorgie", "Hawaï", "Idaho", "Illinois", "Indiana", "Iowa", "Kansas", "Kentucky", "Louisiane", "Maine", "Maryland", "Massachusetts", "Michigan", "Minnesota", "Mississippi", "Missouri", "Montana", "Nebraska", "Nevada", "New Hampshire", "New Jersey", "Nouveau-Mexique", "New York", "Dakota du Nord", "Caroline du Nord", "Ohio", "Oklahoma", "Oregon", "Pennsylvanie", "Rhode Island", "Caroline du Sud", "Dakota du Sud", "Tennessee", "Texas", "Utah", "Vermont", "Virginie", "Washington", "Virginie-Occidentale", "Wisconsin", "Wyoming"]
       });
 
       $('#state2').editable({
-        value: 'California',
+        value: 'Californie',
         typeahead: {
           name: 'state',
-          local: ["Alabama", "Alaska", "Arizona", "Arkansas", "California", "Colorado", "Connecticut", "Delaware", "Florida", "Georgia", "Hawaii", "Idaho", "Illinois", "Indiana", "Iowa", "Kansas", "Kentucky", "Louisiana", "Maine", "Maryland", "Massachusetts", "Michigan", "Minnesota", "Mississippi", "Missouri", "Montana", "Nebraska", "Nevada", "New Hampshire", "New Jersey", "New Mexico", "New York", "North Dakota", "North Carolina", "Ohio", "Oklahoma", "Oregon", "Pennsylvania", "Rhode Island", "South Carolina", "South Dakota", "Tennessee", "Texas", "Utah", "Vermont", "Virginia", "Washington", "West Virginia", "Wisconsin", "Wyoming"]
+          local: ["Alabama", "Alaska", "Arizona", "Arkansas", "Californie", "Colorado", "Connecticut", "Delaware", "Floride", "Géorgie", "Hawaï", "Idaho", "Illinois", "Indiana", "Iowa", "Kansas", "Kentucky", "Louisiane", "Maine", "Maryland", "Massachusetts", "Michigan", "Minnesota", "Mississippi", "Missouri", "Montana", "Nebraska", "Nevada", "New Hampshire", "New Jersey", "Nouveau-Mexique", "New York", "Dakota du Nord", "Caroline du Nord", "Ohio", "Oklahoma", "Oregon", "Pennsylvanie", "Rhode Island", "Caroline du Sud", "Dakota du Sud", "Tennessee", "Texas", "Utah", "Vermont", "Virginie", "Washington", "Virginie-Occidentale", "Wisconsin", "Wyoming"]
         }
       });
 
@@ -96,19 +97,19 @@
         limit: 3,
         source: [{
             value: 1,
-            text: 'banana'
+            text: 'banane'
           },
           {
             value: 2,
-            text: 'peach'
+            text: 'pêche'
           },
           {
             value: 3,
-            text: 'apple'
+            text: 'pomme'
           },
           {
             value: 4,
-            text: 'watermelon'
+            text: 'pastèque'
           },
           {
             value: 5,
@@ -128,19 +129,19 @@
       $('#address').editable({
         url: '/post',
         value: {
-          city: "Moscow",
+          city: "Moscou",
           street: "Lenina",
           building: "12"
         },
         validate: function(value) {
-          if (value.city === '') return 'city is required!';
+          if (value.city === '') return 'La ville est requise !';
         },
         display: function(value) {
           if (!value) {
             $(this).empty();
             return;
           }
-          var html = '<b>' + $('<div>').text(value.city).html() + '</b>, ' + $('<div>').text(value.street).html() + ' st., bld. ' + $('<div>').text(value.building).html();
+          var html = '<b>' + $('<div>').text(value.city).html() + '</b>, ' + $('<div>').text(value.street).html() + ' rue, bld. ' + $('<div>').text(value.building).html();
           $(this).html(html);
         }
       });

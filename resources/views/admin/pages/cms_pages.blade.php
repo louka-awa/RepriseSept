@@ -6,15 +6,15 @@
             <div class="col-lg-12 grid-margin stretch-card">
                 <div class="card">
                     <div class="card-body">
-                        <h4 class="card-title">CMS Pages</h4>
+                        <h4 class="card-title">Pages CMS</h4>
                         <!-- <p class="card-description">
-                            Add class <code>.table-bordered</code>
+                            Ajouter la classe <code>.table-bordered</code>
                         </p> -->
-                        <a style="max-width: 150px; float: right; display: inline-block;" href="{{ url('admin/add-edit-cms-page') }}" class="btn btn-block btn-primary">Add CMS Page</a>
+                        <a style="max-width: 150px; float: right; display: inline-block;" href="{{ url('admin/add-edit-cms-page') }}" class="btn btn-block btn-primary">Ajouter une page CMS</a>
                         @if(Session::has('success_message'))
                           <div class="alert alert-success alert-dismissible fade show" role="alert">
-                            <strong>Success: </strong> {{ Session::get('success_message')}}
-                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                            <strong>Succès : </strong> {{ Session::get('success_message') }}
+                            <button type="button" class="close" data-dismiss="alert" aria-label="Fermer">
                               <span aria-hidden="true">&times;</span>
                             </button>
                           </div>
@@ -27,13 +27,13 @@
                                             ID
                                         </th>
                                         <th>
-                                            Title
+                                            Titre
                                         </th>
                                         <th>
                                             URL
                                         </th>
                                         <th>
-                                            Status
+                                            Statut
                                         </th>
                                         <th>
                                             Actions
@@ -53,10 +53,10 @@
                                             {{ $page['url'] }}
                                         </td>
                                         <td>
-                                            @if($page['status']==1)
-                                              <a class="updatePageStatus" id="page-{{ $page['id'] }}" page_id="{{ $page['id'] }}" href="javascript:void(0)"><i style="font-size:25px;" class="mdi mdi-bookmark-check" status="Active"></i></a>
+                                            @if($page['status'] == 1)
+                                              <a class="updatePageStatus" id="page-{{ $page['id'] }}" page_id="{{ $page['id'] }}" href="javascript:void(0)"><i style="font-size:25px;" class="mdi mdi-bookmark-check" status="Actif"></i></a>
                                             @else
-                                              <a class="updatePageStatus" id="page-{{ $page['id'] }}" page_id="{{ $page['id'] }}" href="javascript:void(0)"><i style="font-size:25px;" class="mdi mdi-bookmark-outline" status="Inactive"></i></a>
+                                              <a class="updatePageStatus" id="page-{{ $page['id'] }}" page_id="{{ $page['id'] }}" href="javascript:void(0)"><i style="font-size:25px;" class="mdi mdi-bookmark-outline" status="Inactif"></i></a>
                                             @endif
                                         </td>
                                         <td>
@@ -74,12 +74,12 @@
             </div>
         </div>
     </div>
-    <!-- content-wrapper ends -->
+    <!-- la fin de content-wrapper -->
     <!-- partial:../../partials/_footer.html -->
     <footer class="footer">
         <div class="d-sm-flex justify-content-center justify-content-sm-between">
-            <span class="text-muted text-center text-sm-left d-block d-sm-inline-block">Copyright © 2021.  Premium <a href="https://www.bootstrapdash.com/" target="_blank">Bootstrap admin template</a> from BootstrapDash. All rights reserved.</span>
-            <span class="float-none float-sm-right d-block mt-1 mt-sm-0 text-center">Hand-crafted & made with <i class="ti-heart text-danger ml-1"></i></span>
+            <span class="text-muted text-center text-sm-left d-block d-sm-inline-block">Droit d'auteur © 2021.  Premium <a href="https://www.bootstrapdash.com/" target="_blank">template admin Bootstrap</a> de BootstrapDash. Tous droits réservés.</span>
+            <span class="float-none float-sm-right d-block mt-1 mt-sm-0 text-center">Fait à la main & créé avec <i class="ti-heart text-danger ml-1"></i></span>
         </div>
     </footer>
     <!-- partial -->

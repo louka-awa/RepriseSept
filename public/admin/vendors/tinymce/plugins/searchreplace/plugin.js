@@ -978,7 +978,7 @@
         inselection: initialState.inSelection
       };
       var spec = {
-        title: 'Find and Replace',
+        title: 'Rechercher et Remplacer',
         size: 'normal',
         body: {
           type: 'panel',
@@ -989,14 +989,14 @@
                 {
                   type: 'input',
                   name: 'findtext',
-                  placeholder: 'Find',
+                  placeholder: 'Rechercher',
                   maximized: true,
                   inputMode: 'search'
                 },
                 {
                   type: 'button',
                   name: 'prev',
-                  text: 'Previous',
+                  text: 'Précédent',
                   icon: 'action-prev',
                   disabled: true,
                   borderless: true
@@ -1004,7 +1004,7 @@
                 {
                   type: 'button',
                   name: 'next',
-                  text: 'Next',
+                  text: 'Suivant',
                   icon: 'action-next',
                   disabled: true,
                   borderless: true
@@ -1014,7 +1014,7 @@
             {
               type: 'input',
               name: 'replacetext',
-              placeholder: 'Replace with',
+              placeholder: 'Remplacer par',
               inputMode: 'search'
             }
           ]
@@ -1024,42 +1024,42 @@
             type: 'menu',
             name: 'options',
             icon: 'preferences',
-            tooltip: 'Preferences',
+            tooltip: 'Préférences',
             align: 'start',
             items: [
               {
                 type: 'togglemenuitem',
                 name: 'matchcase',
-                text: 'Match case'
+                text: 'Respecter la casse'
               },
               {
                 type: 'togglemenuitem',
                 name: 'wholewords',
-                text: 'Find whole words only'
+                text: 'Trouver uniquement des mots entiers'
               },
               {
                 type: 'togglemenuitem',
                 name: 'inselection',
-                text: 'Find in selection'
+                text: 'Rechercher dans la sélection'
               }
             ]
           },
           {
             type: 'custom',
             name: 'find',
-            text: 'Find',
+            text: 'Rechercher',
             primary: true
           },
           {
             type: 'custom',
             name: 'replace',
-            text: 'Replace',
+            text: 'Remplacer',
             disabled: true
           },
           {
             type: 'custom',
             name: 'replaceall',
-            text: 'Replace All',
+            text: 'Tout remplacer',
             disabled: true
           }
         ],
@@ -1129,13 +1129,13 @@
     };
     var register$1 = function (editor, currentSearchState) {
       editor.ui.registry.addMenuItem('searchreplace', {
-        text: 'Find and replace...',
+        text: 'Rechercher et remplacer...',
         shortcut: 'Meta+F',
         onAction: showDialog(editor, currentSearchState),
         icon: 'search'
       });
       editor.ui.registry.addButton('searchreplace', {
-        tooltip: 'Find and replace',
+        tooltip: 'Rechercher et remplacer',
         onAction: showDialog(editor, currentSearchState),
         icon: 'search'
       });
