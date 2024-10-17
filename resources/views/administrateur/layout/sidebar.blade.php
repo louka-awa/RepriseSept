@@ -56,8 +56,8 @@
     </a>
     <div class="collapse" id="ui-settings">
         <ul class="nav flex-column sub-menu" style="background: #fff !important; color: #4B49AC !important;">
-            <li class="nav-item"> <a @if(Session::get('page')=="update_admin_password") style="background:#4B49AC !important; color: #fff !important;" @else style="background:#fff !important; color: #4B49AC !important;" @endif class="nav-link" href="{{ url('administrateur/update-admin-password') }}">Modifier le mot de passe</a></li>
-            <li class="nav-item"> <a @if(Session::get('page')=="update_admin_details") style="background:#4B49AC !important; color: #fff !important;" @else style="background:#fff !important; color: #4B49AC !important;" @endif class="nav-link" href="{{ url('administrateur/update-admin-details') }}">Modifier les détails</a></li>
+            <li class="nav-item"> <a @if(Session::get('page')=="update_admin_password") style="background:#4B49AC !important; color: #fff !important;" @else style="background:#fff !important; color: #4B49AC !important;" @endif class="nav-link" href="{{ url('administrateur/update-administrateur-password') }}">Modifier le mot de passe</a></li>
+            <li class="nav-item"> <a @if(Session::get('page')=="update_admin_details") style="background:#4B49AC !important; color: #fff !important;" @else style="background:#fff !important; color: #4B49AC !important;" @endif class="nav-link" href="{{ url('administrateur/update-administrateur-details') }}">Modifier les détails</a></li>
         </ul>
     </div>
 </li>
@@ -69,10 +69,10 @@
     </a>
     <div class="collapse" id="ui-admins">
         <ul class="nav flex-column sub-menu" style="background: #fff !important; color: #4B49AC !important;">
-            <li class="nav-item"> <a @if(Session::get('page')=="view_admins") style="background:#4B49AC !important; color: #fff !important;" @else style="background:#fff !important; color: #4B49AC !important;" @endif class="nav-link" href="{{ url('administrateur/admins/administrateur') }}">Administrateurs</a></li>
-            <li class="nav-item"> <a @if(Session::get('page')=="view_subadmins") style="background:#4B49AC !important; color: #fff !important;" @else style="background:#fff !important; color: #4B49AC !important;" @endif class="nav-link" href="{{ url('administrateur/admins/subadministrateur') }}">Sous-administrateurs</a></li>
-            <li class="nav-item"> <a @if(Session::get('page')=="view_vendors") style="background:#4B49AC !important; color: #fff !important;" @else style="background:#fff !important; color: #4B49AC !important;" @endif class="nav-link" href="{{ url('administrateur/admins/vendor') }}">Vendeurs</a></li>
-            <li class="nav-item"> <a @if(Session::get('page')=="view_all") style="background:#4B49AC !important; color: #fff !important;" @else style="background:#fff !important; color: #4B49AC !important;" @endif class="nav-link" href="{{ url('administrateur/admins') }}">Tous</a></li>
+            <li class="nav-item"> <a @if(Session::get('page')=="view_admins") style="background:#4B49AC !important; color: #fff !important;" @else style="background:#fff !important; color: #4B49AC !important;" @endif class="nav-link" href="{{ url('administrateur/administrateurs/administrateur') }}">Administrateurs</a></li>
+            <li class="nav-item"> <a @if(Session::get('page')=="view_subadmins") style="background:#4B49AC !important; color: #fff !important;" @else style="background:#fff !important; color: #4B49AC !important;" @endif class="nav-link" href="{{ url('administrateur/administrateurs/subadministrateur') }}">Sous-administrateurs</a></li>
+            <li class="nav-item"> <a @if(Session::get('page')=="view_vendors") style="background:#4B49AC !important; color: #fff !important;" @else style="background:#fff !important; color: #4B49AC !important;" @endif class="nav-link" href="{{ url('administrateur/administrateurs/vendor') }}">Vendeurs</a></li>
+            <li class="nav-item"> <a @if(Session::get('page')=="view_all") style="background:#4B49AC !important; color: #fff !important;" @else style="background:#fff !important; color: #4B49AC !important;" @endif class="nav-link" href="{{ url('administrateur/administrateurs') }}">Tous</a></li>
         </ul>
     </div>
 </li>

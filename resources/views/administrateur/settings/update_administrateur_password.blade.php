@@ -1,4 +1,4 @@
-@extends('admin.layout.layout')
+@extends('administrateur.layout.layout')
 @section('content')
 <div class="main-panel">
     <div class="content-wrapper">
@@ -50,14 +50,14 @@
                   </div>
                   @endif
                   
-                  <form class="forms-sample" action="{{ url('admin/update-admin-password') }}" method="post">@csrf
+                  <form class="forms-sample" action="{{ url('administrateur/update-administrateur-password') }}" method="post">@csrf
                     <div class="form-group">
                       <label>Admin Username/Email</label>
-                      <input class="form-control" value="{{ $adminDetails['email'] }}" readonly="">
+                      <input class="form-control" value="{{ $administrateurDetails['email'] }}" readonly="">
                     </div>
                     <div class="form-group">
                       <label>Admin Type</label>
-                      <input class="form-control" value="{{ $adminDetails['type'] }}" readonly="">
+                      <input class="form-control" value="{{ $administrateurDetails['type'] }}" readonly="">
                     </div>
                     <div class="form-group">
                       <label for="current_password">Current Password</label>
@@ -83,7 +83,7 @@
     </div>
     <!-- content-wrapper ends -->
     <!-- partial:partials/_footer.html -->
-    @include('admin.layout.footer')
+    @include('administrateur.layout.footer')
     <!-- partial -->
 </div>
 @endsection

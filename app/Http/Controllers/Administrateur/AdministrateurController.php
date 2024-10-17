@@ -72,22 +72,22 @@ class administrateurController extends Controller
             $data = $request->all();
     
             $rules = [
-                'administrateur_name' => 'required|regex:/^[\pL\s\-]+$/u',
-                'administrateur_mobile' => 'required|numeric',
+                'admin_name' => 'required|regex:/^[\pL\s\-]+$/u',
+                'admin_mobile' => 'required|numeric',
             ];
     
             $customMessages = [
-                'administrateur_name.required' => 'Le nom est obligatoire',
-                'administrateur_name.regex' => 'Un nom valide est obligatoire',
-                'administrateur_mobile.required' => 'Le numéro de téléphone est obligatoire',
-                'administrateur_mobile.numeric' => 'Un numéro de téléphone valide est obligatoire',
+                'admin_name.required' => 'Le nom est obligatoire',
+                'admin_name.regex' => 'Un nom valide est obligatoire',
+                'admin_mobile.required' => 'Le numéro de téléphone est obligatoire',
+                'admin_mobile.numeric' => 'Un numéro de téléphone valide est obligatoire',
             ];
     
             $this->validate($request, $rules, $customMessages);
     
             // Téléchargement de la photo de l'administrateuristrateur
-            if($request->hasFile('administrateur_image')){
-                $image_tmp = $request->file('administrateur_image');
+            if($request->hasFile('admin_image')){
+                $image_tmp = $request->file('admin_image');
                 if($image_tmp->isValid()){
                     // Obtenir l'extension de l'image
                     $extension = $image_tmp->getClientOriginalExtension();
@@ -97,19 +97,19 @@ class administrateurController extends Controller
                     // Télécharger l'image
                     Image::make($image_tmp)->save($imagePath);
                 }
-            }else if(!empty($data['current_administrateur_image'])){
-                $imageName = $data['current_administrateur_image'];
+            }else if(!empty($data['current_admin_image'])){
+                $imageName = $data['current_admin_image'];
             }else{
                 $imageName = "";
             }
     
             // Mettre à jour les détails de l'administrateuristrateur
             administrateur::where('id',Auth::guard('administrateur')->user()->id)->update([
-                'name'=>$data['administrateur_name'],
-                'mobile'=>$data['administrateur_mobile'],
+                'name'=>$data['admin_name'],
+                'mobile'=>$data['admin_mobile'],
                 'image'=>$imageName
             ]);
-            return redirect()->back()->with('success_message','Les détails de l’administrateuristrateur ont été mis à jour avec succès !');
+            return redirect()->back()->with('success_message','Les détails de l’administrateur ont été mis à jour avec succès !');
         }
         return view('administrateur.settings.update_administrateur_details');
     }
@@ -399,8 +399,8 @@ class administrateurController extends Controller
             }else{
                 $status = 1;
             }
-            administrateur::where('id',$data['administrateur_id'])->update(['status'=>$status]);
-            $administrateurDetails = administrateur::where('id',$data['administrateur_id'])->first()->toArray();
+            administrateur::where('id',$data['admin_id'])->update(['status'=>$status]);
+            $administrateurDetails = administrateur::where('id',$data['admin_id'])->first()->toArray();
             if($administrateurDetails['type']=="vendor" && $status==1){
                 Vendor::where('id',$administrateurDetails['vendor_id'])->update(['status'=>$status]);
                 // Envoyer l'email d'approbation
@@ -416,7 +416,7 @@ class administrateurController extends Controller
                 });
             }
     
-            return response()->json(['status'=>$status,'administrateur_id'=>$data['administrateur_id']]);
+            return response()->json(['status'=>$status,'admin_id'=>$data['admin_id']]);
         }
     }
     

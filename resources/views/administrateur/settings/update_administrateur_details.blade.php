@@ -1,4 +1,4 @@
-@extends('admin.layout.layout')
+@extends('administrateur.layout.layout')
 @section('content')
 <div class="main-panel">
     <div class="content-wrapper">
@@ -61,29 +61,29 @@
                   </div>
                   @endif
 
-                  <form class="forms-sample" action="{{ url('admin/update-admin-details') }}" method="post" enctype="multipart/form-data">@csrf
+                  <form class="forms-sample" action="{{ url('administrateur/update-administrateur-details') }}" method="post" enctype="multipart/form-data">@csrf
                     <div class="form-group">
                       <label>Nom d'utilisateur/Email de l'administrateur</label>
-                      <input class="form-control" value="{{ Auth::guard('admin')->user()->email }}" readonly="">
+                      <input class="form-control" value="{{ Auth::guard('administrateur')->user()->email }}" readonly="">
                     </div>
                     <div class="form-group">
                       <label>Type d'administrateur</label>
-                      <input class="form-control" value="{{ Auth::guard('admin')->user()->type }}" readonly="">
+                      <input class="form-control" value="{{ Auth::guard('administrateur')->user()->type }}" readonly="">
                     </div>
                     <div class="form-group">
                       <label for="admin_name">Nom</label>
-                      <input type="text" class="form-control" id="admin_name" placeholder="Entrez le nom" name="admin_name" value="{{ Auth::guard('admin')->user()->name }}">
+                      <input type="text" class="form-control" id="admin_name" placeholder="Entrez le nom" name="admin_name" value="{{ Auth::guard('administrateur')->user()->name }}">
                     </div>
                     <div class="form-group">
                       <label for="admin_mobile">Mobile</label>
-                      <input type="text" class="form-control" id="admin_mobile" placeholder="Entrez le numéro de mobile à 10 chiffres" name="admin_mobile" value="{{ Auth::guard('admin')->user()->mobile }}" required="" maxlength="10" minlength="10">
+                      <input type="text" class="form-control" id="admin_mobile" placeholder="Entrez le numéro de mobile à 10 chiffres" name="admin_mobile" value="{{ Auth::guard('administrateur')->user()->mobile }}" required="" maxlength="10" minlength="10">
                     </div>
                     <div class="form-group">
                       <label for="admin_image">Photo de l'administrateur</label>
                       <input type="file" class="form-control" id="admin_image" name="admin_image">
-                      @if(!empty(Auth::guard('admin')->user()->image))
-                        <a target="_blank" href="{{ url('admin/images/photos/'.Auth::guard('admin')->user()->image) }}">Voir l'image</a>
-                        <input type="hidden" name="current_admin_image" value="{{ Auth::guard('admin')->user()->image }}">
+                      @if(!empty(Auth::guard('administrateur')->user()->image))
+                        <a target="_blank" href="{{ url('administrateur/images/photos/'.Auth::guard('administrateur')->user()->image) }}">Voir l'image</a>
+                        <input type="hidden" name="current_admin_image" value="{{ Auth::guard('administrateur')->user()->image }}">
                       @endif
                     </div>
                     <button type="submit" class="btn btn-primary mr-2">Soumettre</button>
@@ -97,7 +97,7 @@
     </div>
     <!-- content-wrapper ends -->
     <!-- partial:partials/_footer.html -->
-    @include('admin.layout.footer')
+    @include('administrateur.layout.footer')
     <!-- partial -->
 </div>
 @endsection

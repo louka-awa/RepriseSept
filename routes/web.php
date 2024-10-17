@@ -33,13 +33,13 @@ Route::prefix('/administrateur')->namespace('App\Http\Controllers\Administrateur
         Route::get('dashboard','AdministrateurController@dashboard');
 
         // Update Admin Password
-        Route::match(['get','post'],'update-admin-password','AdministrateurController@updateAdminPassword');
+        Route::match(['get','post'],'update-administrateur-password','AdministrateurController@updateAdministrateurPassword');
 
         // Check Admin Password
         Route::post('check-admin-password','AdministrateurController@checkAdminPassword');
 
         // Update Admin Details
-        Route::match(['get','post'],'update-admin-details','AdministrateurController@updateAdminDetails');
+        Route::match(['get','post'],'update-administrateur-details','AdministrateurController@updateAdministrateurDetails');
 
         // Update Vendor Details
         Route::match(['get','post'],'update-vendor-details/{slug}','AdministrateurController@updateVendorDetails');
@@ -54,7 +54,7 @@ Route::prefix('/administrateur')->namespace('App\Http\Controllers\Administrateur
         Route::get('view-vendor-details/{id}','AdministrateurController@viewVendorDetails');
 
         // Update Admin Status
-        Route::post('update-admin-status','AdministrateurController@updateAdminStatus');
+        Route::post('update-administrateur-status','AdministrateurController@updateAdministrateurStatus');
 
         // Admin Logout
         Route::get('logout','AdministrateurController@logout');
