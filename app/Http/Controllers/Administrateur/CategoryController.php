@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Admin;
+namespace App\Http\Controllers\Administrateur;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
@@ -15,7 +15,7 @@ class CategoryController extends Controller
         Session::put('page','categories');
         $categories = Category::with(['section','parentcategory'])->get()->toArray();
         /*dd($categories);*/
-        return view('admin.categories.categories')->with(compact('categories'));
+        return view('administrateur.categories.categories')->with(compact('categories'));
     }
 
     public function updateCategoryStatus(Request $request){
@@ -101,21 +101,21 @@ class CategoryController extends Controller
             $category->status = 1;
             $category->save();
 
-            return redirect('admin/categories')->with('success_message',$message);
+            return redirect('administrateur/categories')->with('success_message',$message);
 
         }
 
         // Get All Sections
         $getSections = Section::get()->toArray();
 
-        return view('admin.categories.add_edit_category')->with(compact('title','category','getSections','getCategories'));
+        return view('administrateur.categories.add_edit_category')->with(compact('title','category','getSections','getCategories'));
     }
 
     public function appendCategoryLevel(Request $request){
         if($request->ajax()){
             $data = $request->all();
             $getCategories = Category::with('subcategories')->where(['parent_id'=>0,'section_id'=>$data['section_id']])->get();
-            return view('admin.categories.append_categories_level')->with(compact('getCategories'));
+            return view('administrateur.categories.append_categories_level')->with(compact('getCategories'));
         }    
     }
 

@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Admin;
+namespace App\Http\Controllers\Administrateur;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
@@ -13,7 +13,7 @@ class SectionController extends Controller
         Session::put('page','sections');
         $sections = Section::get()->toArray();
         /*dd($sections);*/
-        return view('admin.sections.sections')->with(compact('sections'));
+        return view('administrateur.sections.sections')->with(compact('sections'));
     }
 
     public function updateSectionStatus(Request $request){
@@ -68,9 +68,9 @@ class SectionController extends Controller
             $section->status = 1;
             $section->save();
 
-            return redirect('admin/sections')->with('success_message',$message);
+            return redirect('administrateur/sections')->with('success_message',$message);
 
         }
-        return view('admin.sections.add_edit_section')->with(compact('title','section'));
+        return view('administrateur.sections.add_edit_section')->with(compact('title','section'));
     }
 }

@@ -20,7 +20,7 @@ h1, h2, h3, h4, h5, h6 {
  * Basic styles for links
  */
 a {
-  color: #bab6b6; }
+  color: #000000; }
   a:hover {
     color: #04a4d9;
     text-decoration: none; }

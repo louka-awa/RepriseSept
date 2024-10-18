@@ -51,7 +51,7 @@
                     <div class="login-wrapper">
                         <h2 class="account-h2 u-s-m-b-20">Login</h2>
                         <h6 class="account-h6 u-s-m-b-30">Welcome back! Sign in to your account.</h6>
-                        <form action="{{ url('admin/login') }}" method="post">@csrf
+                        <form action="{{ url('administrateur/login') }}" method="post">@csrf
                             <div class="u-s-m-b-30">
                                 <label for="vendor-email">Email
                                     <span class="astk">*</span>

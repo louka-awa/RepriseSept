@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Admin;
+namespace App\Http\Controllers\Administrateur;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
@@ -19,12 +19,12 @@ class ProductsController extends Controller
 {
     public function products(){
         Session::put('page','products');
-        $adminType = Auth::guard('admin')->user()->type;
-        $vendor_id = Auth::guard('admin')->user()->vendor_id;
+        $adminType = Auth::guard('administrateur')->user()->type;
+        $vendor_id = Auth::guard('administrateur')->user()->vendor_id;
         if($adminType=="vendor"){
-            $vendorStatus = Auth::guard('admin')->user()->status;
+            $vendorStatus = Auth::guard('administrateur')->user()->status;
             if($vendorStatus==0){
-                return redirect("admin/update-vendor-details/personal")->with('error_message','Your Vendor Account is not approved yet. Please make sure to fill your valid personal, business and bank details');
+                return redirect("administrateur/update-vendor-details/personal")->with('error_message','Your Vendor Account is not approved yet. Please make sure to fill your valid personal, business and bank details');
             }
         }
         $products = Product::with(['section'=>function($query){
@@ -37,7 +37,7 @@ class ProductsController extends Controller
         }
         $products = $products->get()->toArray();
         /*dd($products);*/
-        return view('admin.products.products')->with(compact('products'));
+        return view('administrateur.products.products')->with(compact('products'));
     }
 
     public function updateProductStatus(Request $request){
@@ -154,12 +154,12 @@ class ProductsController extends Controller
             }
 
             if($id==""){
-                $adminType = Auth::guard('admin')->user()->type;
-                $vendor_id = Auth::guard('admin')->user()->vendor_id;
-                $admin_id = Auth::guard('admin')->user()->id;
+                $adminType = Auth::guard('administrateur')->user()->type;
+                $vendor_id = Auth::guard('administrateur')->user()->vendor_id;
+                $administrateur_id = Auth::guard('administrateur')->user()->id;
 
-                $product->admin_type = $adminType;
-                $product->admin_id = $admin_id;
+                $product->administrateur_type = $adminType;
+                $product->administrateur_id = $administrateur_id;
                 if($adminType=="vendor"){
                     $product->vendor_id = $vendor_id;
                 }else{
@@ -197,7 +197,7 @@ class ProductsController extends Controller
             }
             $product->status = 1;
             $product->save();
-            return redirect('admin/products')->with('success_message',$message);
+            return redirect('administrateur/products')->with('success_message',$message);
         }
 
         // Get Sections with Categories and Sub Categories
@@ -207,7 +207,7 @@ class ProductsController extends Controller
         // Get All Brands
         $brands = Brand::where('status',1)->get()->toArray();
 
-        return view('admin.products.add_edit_product')->with(compact('title','categories','brands','product'));
+        return view('administrateur.products.add_edit_product')->with(compact('title','categories','brands','product'));
     }
 
     public function deleteProductImage($id){
@@ -301,7 +301,7 @@ class ProductsController extends Controller
             return redirect()->back()->with('success_message','Product Attributes has been added successfully!');
         }
 
-        return view('admin.attributes.add_edit_attributes')->with(compact('product'));
+        return view('administrateur.attributes.add_edit_attributes')->with(compact('product'));
     }
 
     public function updateAttributeStatus(Request $request){
@@ -367,7 +367,7 @@ class ProductsController extends Controller
             return redirect()->back()->with('success_message','Product Images has been added successfully!');
         }
 
-        return view('admin.images.add_images')->with(compact('product'));
+        return view('administrateur.images.add_images')->with(compact('product'));
     }
 
     public function updateImageStatus(Request $request){

@@ -1,4 +1,4 @@
-@extends('admin.layout.layout')
+@extends('administrateur.layout.layout')
 @section('content')
 <div class="main-panel">
     <div class="content-wrapper">
@@ -60,7 +60,7 @@
                   </div>
                   @endif
                   
-                  <form class="forms-sample" @if(empty($category['id'])) action="{{ url('admin/add-edit-category') }}" @else action="{{ url('admin/add-edit-category/'.$category['id']) }}" @endif method="post" enctype="multipart/form-data">@csrf
+                  <form class="forms-sample" @if(empty($category['id'])) action="{{ url('administrateur/add-edit-category') }}" @else action="{{ url('administrateur/add-edit-category/'.$category['id']) }}" @endif method="post" enctype="multipart/form-data">@csrf
                     <div class="form-group">
                       <label for="category_name">Category Name</label>
                       <input type="text" class="form-control" id="category_name" placeholder="Enter Category Name" name="category_name" @if(!empty($category['category_name'])) value="{{ $category['category_name'] }}" @else value="{{ old('category_name') }}" @endif>
@@ -75,10 +75,10 @@
                       </select>
                     </div>
                     <div id="appendCategoriesLevel">
-                        @include('admin.categories.append_categories_level')
+                        @include('administrateur.categories.append_categories_level')
                     </div>
                     <div class="form-group">
-                      <label for="admin_image">Category Image</label>
+                      <label for="administrateur_image">Category Image</label>
                       <input type="file" class="form-control" id="category_image" name="category_image">
                       @if(!empty($category['category_image']))
                         <a target="_blank" href="{{ url('front/images/category_images/'.$category['category_image']) }}">View Image</a>&nbsp;|&nbsp;
@@ -120,7 +120,7 @@
     </div>
     <!-- content-wrapper ends -->
     <!-- partial:partials/_footer.html -->
-    @include('admin.layout.footer')
+    @include('administrateur.layout.footer')
     <!-- partial -->
 </div>
 @endsection

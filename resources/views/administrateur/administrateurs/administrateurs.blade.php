@@ -1,4 +1,4 @@
-@extends('admin.layout.layout')
+@extends('administrateur.layout.layout')
 @section('content')
 <div class="main-panel">
     <div class="content-wrapper">
@@ -41,40 +41,40 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                  @foreach($admins as $admin)
+                                  @foreach($administrateurs as $administrateur)
                                     <tr>
                                         <td>
-                                            {{ $admin['id'] }}
+                                            {{ $administrateur['id'] }}
                                         </td>
                                         <td>
-                                            {{ $admin['name'] }}
+                                            {{ $administrateur['name'] }}
                                         </td>
                                         <td>
-                                            {{ $admin['type'] }}
+                                            {{ $administrateur['type'] }}
                                         </td>
                                         <td>
-                                            {{ $admin['mobile'] }}
+                                            {{ $administrateur['mobile'] }}
                                         </td>
                                         <td>
-                                            {{ $admin['email'] }}
+                                            {{ $administrateur['email'] }}
                                         </td>
                                         <td>
-                                            @if($admin['image']!="")
-                                            <img src="{{ asset('admin/images/photos/'.$admin['image']) }}">
+                                            @if($administrateur['image']!="")
+                                            <img src="{{ asset('admin/images/photos/'.$administrateur['image']) }}">
                                             @else
                                              <img src="{{ asset('admin/images/photos/no-image.gif') }}">
                                             @endif
                                         </td>
                                         <td>
-                                            @if($admin['status']==1)
-                                              <a class="updateAdminStatus" id="admin-{{ $admin['id'] }}" admin_id="{{ $admin['id'] }}" href="javascript:void(0)"><i style="font-size:25px;" class="mdi mdi-bookmark-check" status="Active"></i></a>
+                                            @if($administrateur['status']==1)
+                                              <a class="updateAdminStatus" id="admin-{{ $administrateur['id'] }}" admin_id="{{ $administrateur['id'] }}" href="javascript:void(0)"><i style="font-size:25px;" class="mdi mdi-bookmark-check" status="Active"></i></a>
                                             @else
-                                              <a class="updateAdminStatus" id="admin-{{ $admin['id'] }}" admin_id="{{ $admin['id'] }}" href="javascript:void(0)"><i style="font-size:25px;" class="mdi mdi-bookmark-outline" status="Inactive"></i></a>
+                                              <a class="updateAdminStatus" id="admin-{{ $administrateur['id'] }}" admin_id="{{ $administrateur['id'] }}" href="javascript:void(0)"><i style="font-size:25px;" class="mdi mdi-bookmark-outline" status="Inactive"></i></a>
                                             @endif
                                         </td>
                                         <td>
-                                            @if($admin['type']=="vendor")
-                                              <a href="{{ url('admin/view-vendor-details/'.$admin['id']) }}"><i style="font-size:25px;" class="mdi mdi-file-document"></i></a>
+                                            @if($administrateur['type']=="vendor")
+                                              <a href="{{ url('admin/view-vendor-details/'.$administrateur['id']) }}"><i style="font-size:25px;" class="mdi mdi-file-document"></i></a>
                                             @endif
                                         </td>
                                     </tr>

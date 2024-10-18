@@ -1,4 +1,4 @@
-@extends('admin.layout.layout')
+@extends('administrateur.layout.layout')
 @section('content')
 <div class="main-panel">
     <div class="content-wrapper">
@@ -60,7 +60,7 @@
                   </div>
                   @endif
                   
-                  <form class="forms-sample" action="{{ url('admin/add-edit-attributes/'.$product['id']) }}" method="post">@csrf
+                  <form class="forms-sample" action="{{ url('administrateur/add-edit-attributes/'.$product['id']) }}" method="post">@csrf
                     <div class="form-group">
                       <label for="product_name">Product Name</label>
                       &nbsp; {{ $product['product_name'] }}
@@ -99,7 +99,7 @@
                     <button type="reset" class="btn btn-light">Cancel</button>
                   </form>
                   <br><br><h4 class="card-title">Product Attributes</h4>
-                  <form method="post" action="{{ url('admin/edit-attributes/'.$product['id']) }}">@csrf
+                  <form method="post" action="{{ url('administrateur/edit-attributes/'.$product['id']) }}">@csrf
                   <table id="products" class="table table-bordered">
                                 <thead>
                                     <tr>
@@ -162,7 +162,7 @@
     </div>
     <!-- content-wrapper ends -->
     <!-- partial:partials/_footer.html -->
-    @include('admin.layout.footer')
+    @include('administrateur.layout.footer')
     <!-- partial -->
 </div>
 @endsection

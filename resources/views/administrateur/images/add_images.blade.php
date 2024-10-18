@@ -1,4 +1,4 @@
-@extends('admin.layout.layout')
+@extends('administrateur.layout.layout')
 @section('content')
 <div class="main-panel">
     <div class="content-wrapper">
@@ -60,7 +60,7 @@
                   </div>
                   @endif
                   
-                  <form class="forms-sample" action="{{ url('admin/add-images/'.$product['id']) }}" method="post" enctype="multipart/form-data">@csrf
+                  <form class="forms-sample" action="{{ url('administrateur/add-images/'.$product['id']) }}" method="post" enctype="multipart/form-data">@csrf
                     <div class="form-group">
                       <label for="product_name">Product Name</label>
                       &nbsp; {{ $product['product_name'] }}
@@ -136,7 +136,7 @@
     </div>
     <!-- content-wrapper ends -->
     <!-- partial:partials/_footer.html -->
-    @include('admin.layout.footer')
+    @include('administrateur.layout.footer')
     <!-- partial -->
 </div>
 @endsection

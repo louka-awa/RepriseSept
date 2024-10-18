@@ -48,7 +48,7 @@ Route::prefix('/administrateur')->namespace('App\Http\Controllers\Administrateur
         Route::post('update-vendor-commission','AdministrateurController@updateVendorCommission');
 
         // View Admins / Subadmins / Vendors
-        Route::get('admins/{type?}','AdministrateurController@admins');
+        Route::get('administrateurs/{type?}','AdministrateurController@administrateurs');
 
         // View Vendor Details
         Route::get('view-vendor-details/{id}','AdministrateurController@viewVendorDetails');

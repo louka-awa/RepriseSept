@@ -6,7 +6,7 @@ use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Mail;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Models\Admin;
+use App\Models\Administrateur;
 use App\Models\Vendor;
 use Validator;
 use DB;
@@ -25,8 +25,8 @@ class VendorController extends Controller
             // Valider le vendeur
             $regles = [
                 "name" => "required",
-                "email" => "required|email|unique:admins|unique:vendors",
-                "mobile" => "required|min:10|numeric|unique:admins|unique:vendors",
+                "email" => "required|email|unique:administrateurs|unique:vendors",
+                "mobile" => "required|min:10|numeric|unique:administrateurs|unique:vendors",
                 "accept" => "required"
             ];
             $messagesPersonnalises = [
@@ -61,21 +61,21 @@ class VendorController extends Controller
 
             $vendor_id = DB::getPdo()->lastInsertId();
 
-            // Insérer les détails du vendeur dans la table `admins`
-            $admin = new Admin;
-            $admin->type = 'vendor';
-            $admin->vendor_id = $vendor_id;
-            $admin->name = $data['name'];
-            $admin->mobile = $data['mobile'];
-            $admin->email = $data['email'];
-            $admin->password = bcrypt($data['password']);
-            $admin->status = 0;
+            // Insérer les détails du vendeur dans la table `administrateurs`
+            $administrateur = new Administrateur;
+            $administrateur->type = 'vendor';
+            $administrateur->vendor_id = $vendor_id;
+            $administrateur->name = $data['name'];
+            $administrateur->mobile = $data['mobile'];
+            $administrateur->email = $data['email'];
+            $administrateur->password = bcrypt($data['password']);
+            $administrateur->status = 0;
 
             // Définir le fuseau horaire par défaut sur l'Inde
             date_default_timezone_set("Asia/Kolkata");
-            $admin->created_at = date("Y-m-d H:i:s");
-            $admin->updated_at = date("Y-m-d H:i:s");
-            $admin->save();
+            $administrateur->created_at = date("Y-m-d H:i:s");
+            $administrateur->updated_at = date("Y-m-d H:i:s");
+            $administrateur->save();
 
             // Envoyer un email de confirmation
             $email = $data['email'];
@@ -109,8 +109,8 @@ class VendorController extends Controller
                 $message = "Votre compte vendeur est déjà confirmé. Vous pouvez vous connecter.";
                 return redirect('vendor/login-register')->with('error_message', $message);
             }else{
-                // Mettre à jour la colonne de confirmation à Oui dans les tables `admins` et `vendors` pour activer le compte
-                Admin::where('email', $email)->update(['confirm' => 'Yes']);
+                // Mettre à jour la colonne de confirmation à Oui dans les tables `administrateurs` et `vendors` pour activer le compte
+                administrateur::where('email', $email)->update(['confirm' => 'Yes']);
                 Vendor::where('email', $email)->update(['confirm' => 'Yes']);
 
                 // Envoyer un email de confirmation d'inscription

@@ -12,6 +12,6 @@
 	<tr><td>&nbsp;<br></td></tr>
 	<tr><td>Merci et cordialement,</td></tr>
 	<tr><td>&nbsp;</td></tr>
-	<tr><td>Stack Developers</td></tr>
+	<tr><td>loukaawa</td></tr>
 </body>
 </html>

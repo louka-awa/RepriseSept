@@ -1,4 +1,4 @@
-@extends('admin.layout.layout')
+@extends('administrateur.layout.layout')
 @section('content')
 <div class="main-panel">
     <div class="content-wrapper">
@@ -7,7 +7,7 @@
                 <div class="row">
                     <div class="col-12 col-xl-8 mb-4 mb-xl-0">
                         <h3 class="font-weight-bold">Settings</h3>
-                        <!-- <h6 class="font-weight-normal mb-0">Update Admin Password</h6> -->
+                        <!-- <h6 class="font-weight-normal mb-0">Update administrateur Password</h6> -->
                     </div>
                     <div class="col-12 col-xl-4">
                         <div class="justify-content-end d-flex">
@@ -61,7 +61,7 @@
                   </div>
                   @endif
                   
-                  <form class="forms-sample" @if(empty($section['id'])) action="{{ url('admin/add-edit-section') }}" @else action="{{ url('admin/add-edit-section/'.$section['id']) }}" @endif method="post" enctype="multipart/form-data">@csrf
+                  <form class="forms-sample" @if(empty($section['id'])) action="{{ url('administrateur/add-edit-section') }}" @else action="{{ url('administrateur/add-edit-section/'.$section['id']) }}" @endif method="post" enctype="multipart/form-data">@csrf
                     <div class="form-group">
                       <label for="section_name">Section Name</label>
                       <input type="text" class="form-control" id="section_name" placeholder="Enter Section Name" name="section_name" @if(!empty($section['name'])) value="{{ $section['name'] }}" @else value="{{ old('section_name') }}" @endif>
@@ -77,7 +77,7 @@
     </div>
     <!-- content-wrapper ends -->
     <!-- partial:partials/_footer.html -->
-    @include('admin.layout.footer')
+    @include('administrateur.layout.footer')
     <!-- partial -->
 </div>
 @endsection

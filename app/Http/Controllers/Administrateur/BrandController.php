@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Admin;
+namespace App\Http\Controllers\Administrateur;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
@@ -13,7 +13,7 @@ class BrandController extends Controller
         Session::put('page','brands');
         $brands = Brand::get()->toArray();
         /*dd($brands);*/
-        return view('admin.brands.brands')->with(compact('brands'));
+        return view('administrateur.brands.brands')->with(compact('brands'));
     }
 
     public function updateBrandStatus(Request $request){
@@ -68,9 +68,9 @@ class BrandController extends Controller
             $brand->status = 1;
             $brand->save();
 
-            return redirect('admin/brands')->with('success_message',$message);
+            return redirect('administrateur/brands')->with('success_message',$message);
 
         }
-        return view('admin.brands.add_edit_brand')->with(compact('title','brand'));
+        return view('administrateur.brands.add_edit_brand')->with(compact('title','brand'));
     }
 }

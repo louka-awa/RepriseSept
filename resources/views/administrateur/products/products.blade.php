@@ -1,4 +1,4 @@
-@extends('admin.layout.layout')
+@extends('administrateur.layout.layout')
 @section('content')
 <div class="main-panel">
     <div class="content-wrapper">
@@ -10,7 +10,7 @@
                         <!-- <p class="card-description">
                             Add class <code>.table-bordered</code>
                         </p> -->
-                        <a style="max-width: 150px; float: right; display: inline-block;" href="{{ url('admin/add-edit-product') }}" class="btn btn-block btn-primary">Add Product</a>
+                        <a style="max-width: 150px; float: right; display: inline-block;" href="{{ url('administrateur/add-edit-product') }}" class="btn btn-block btn-primary">Add Product</a>
                         @if(Session::has('success_message'))
                           <div class="alert alert-success alert-dismissible fade show" role="alert">
                             <strong>Success: </strong> {{ Session::get('success_message')}}
@@ -86,7 +86,7 @@
                                         </td>  
                                         <td>
                                             @if($product['admin_type']=="vendor")
-                                                <a target="_blank" href="{{ url('admin/view-vendor-details/'.$product['admin_id']) }}">{{ ucfirst($product['admin_type']) }}</a>
+                                                <a target="_blank" href="{{ url('administrateur/view-vendor-details/'.$product['admin_id']) }}">{{ ucfirst($product['admin_type']) }}</a>
                                             @else
                                                 {{ ucfirst($product['admin_type']) }}    
                                             @endif
@@ -99,10 +99,10 @@
                                             @endif
                                         </td>
                                         <td>
-                                            <a title="Edit Product" href="{{ url('admin/add-edit-product/'.$product['id']) }}"><i style="font-size:25px;" class="mdi mdi-pencil-box"></i></a>
-                                            <a title="Add Attributes" href="{{ url('admin/add-edit-attributes/'.$product['id']) }}"><i style="font-size:25px;" class="mdi mdi-plus-box"></i></a>
-                                            <a title="Add Images" href="{{ url('admin/add-images/'.$product['id']) }}"><i style="font-size:25px;" class="mdi mdi-library-plus"></i></a>
-                                            <?php /* <a title="Product" class="confirmDelete" href="{{ url('admin/delete-product/'.$product['id']) }}"><i style="font-size:25px;" class="mdi mdi-file-excel-box"></i></a> */ ?>
+                                            <a title="Edit Product" href="{{ url('administrateur/add-edit-product/'.$product['id']) }}"><i style="font-size:25px;" class="mdi mdi-pencil-box"></i></a>
+                                            <a title="Add Attributes" href="{{ url('administrateur/add-edit-attributes/'.$product['id']) }}"><i style="font-size:25px;" class="mdi mdi-plus-box"></i></a>
+                                            <a title="Add Images" href="{{ url('administrateur/add-images/'.$product['id']) }}"><i style="font-size:25px;" class="mdi mdi-library-plus"></i></a>
+                                            <?php /* <a title="Product" class="confirmDelete" href="{{ url('administrateur/delete-product/'.$product['id']) }}"><i style="font-size:25px;" class="mdi mdi-file-excel-box"></i></a> */ ?>
                                             <a href="javascript:void(0)" class="confirmDelete" module="product" moduleid="{{ $product['id'] }}"><i style="font-size:25px;" class="mdi mdi-file-excel-box"></i></a>
                                         </td>
                                     </tr>
@@ -119,8 +119,8 @@
     <!-- partial:../../partials/_footer.html -->
     <footer class="footer">
         <div class="d-sm-flex justify-content-center justify-content-sm-between">
-            <span class="text-muted text-center text-sm-left d-block d-sm-inline-block">Copyright © 2021.  Premium <a href="https://www.bootstrapdash.com/" target="_blank">Bootstrap admin template</a> from BootstrapDash. All rights reserved.</span>
-            <span class="float-none float-sm-right d-block mt-1 mt-sm-0 text-center">Hand-crafted & made with <i class="ti-heart text-danger ml-1"></i></span>
+            <span class="text-muted text-center text-sm-left d-block d-sm-inline-block">Copyright © 2024. <a href="https://www.loukaawa.com/" target="_blank">Markeplace</a> from Loukaawa. All rights reserved.</span>
+            <span class="float-none float-sm-right d-block mt-1 mt-sm-0 text-center">Fait avec amour <i class="ti-heart text-danger ml-1"></i></span>
         </div>
     </footer>
     <!-- partial -->

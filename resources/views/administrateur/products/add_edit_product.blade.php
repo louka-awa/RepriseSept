@@ -1,4 +1,4 @@
-@extends('admin.layout.layout')
+@extends('administrateur.layout.layout')
 @section('content')
 <div class="main-panel">
     <div class="content-wrapper">
@@ -60,7 +60,7 @@
                   </div>
                   @endif
                   
-                  <form class="forms-sample" @if(empty($product['id'])) action="{{ url('admin/add-edit-product') }}" @else action="{{ url('admin/add-edit-product/'.$product['id']) }}" @endif method="post" enctype="multipart/form-data">@csrf
+                  <form class="forms-sample" @if(empty($product['id'])) action="{{ url('administrateur/add-edit-product') }}" @else action="{{ url('administrateur/add-edit-product/'.$product['id']) }}" @endif method="post" enctype="multipart/form-data">@csrf
                     <div class="form-group">
                       <label for="category_id">Select Category</label>
                       <select name="category_id" id="category_id" class="form-control text-dark" >
@@ -77,7 +77,7 @@
                       </select>
                     </div>
                     <div class="loadFilters">
-                      @include('admin.filters.category_filters')
+                      @include('administrateur.filters.category_filters')
                     </div>
                     <div class="form-group">
                       <label for="brand_id">Select Brand</label>
@@ -167,7 +167,7 @@
     </div>
     <!-- content-wrapper ends -->
     <!-- partial:partials/_footer.html -->
-    @include('admin.layout.footer')
+    @include('administrateur.layout.footer')
     <!-- partial -->
 </div>
 @endsection
